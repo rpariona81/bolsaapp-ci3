@@ -26,7 +26,7 @@ class AdminController extends CI_Controller
     {
         if ($this->session->userdata('user_rol') == 'admin') {
             $data['contenido'] = 'admin/dashboard';
-            $this->load->view('admin/template', $data);
+            $this->load->view('admin/templateAdmin', $data);
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-admin');
@@ -45,7 +45,7 @@ class AdminController extends CI_Controller
             $data['query'] = Offerjobeloquent::getOffersjobs();
             //print_r($data['query']);
             $data['contenido'] = 'admin/convocatoriaTable';
-            $this->load->view('admin/template', $data);
+            $this->load->view('admin/templateAdmin', $data);
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-admin');
@@ -56,7 +56,7 @@ class AdminController extends CI_Controller
     {
         if ($this->session->userdata('user_rol') == 'admin') {
             $data['contenido'] = 'admin/convocatoriaNew';
-            $this->load->view('admin/template', $data);
+            $this->load->view('admin/templateAdmin', $data);
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-admin');
@@ -97,7 +97,7 @@ class AdminController extends CI_Controller
         if ($this->session->userdata('user_rol') == 'admin') {
             $data['convocatoria'] = Offerjobeloquent::findOrFail($id);
             $data['contenido'] = 'admin/convocatoriaEdit';
-            $this->load->view('admin/template', $data);
+            $this->load->view('admin/templateAdmin', $data);
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-admin');
@@ -170,7 +170,7 @@ class AdminController extends CI_Controller
         if ($this->session->userdata('user_rol') == 'admin') {
             $data['query'] = UserEloquent::getUserEstudiantes();
             $data['contenido'] = 'admin/estudianteTable';
-            $this->load->view('admin/template', $data);
+            $this->load->view('admin/templateAdmin', $data);
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-admin');
@@ -184,7 +184,7 @@ class AdminController extends CI_Controller
             $fechaactual = date('Y-m-d'); // 2016-12-29
             $nuevafecha = strtotime('-16 year', strtotime($fechaactual)); //Se resta un año menos
             $data['fechamax'] = date('Y-m-d', $nuevafecha);
-            $this->load->view('admin/template', $data);
+            $this->load->view('admin/templateAdmin', $data);
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-admin');
@@ -308,7 +308,7 @@ class AdminController extends CI_Controller
             $nuevafecha = strtotime('-16 year', strtotime($fechaactual)); //Se resta un año menos
             $data['fechamax'] = date('Y-m-d', $nuevafecha);
             $data['contenido'] = 'admin/estudianteEdit';
-            $this->load->view('admin/template', $data);
+            $this->load->view('admin/templateAdmin', $data);
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-admin');
@@ -401,7 +401,7 @@ class AdminController extends CI_Controller
         if ($this->session->userdata('user_rol') == 'admin') {
             $data['query'] = UserEloquent::getUserDocentes();
             $data['contenido'] = 'admin/docenteTable';
-            $this->load->view('admin/template', $data);
+            $this->load->view('admin/templateAdmin', $data);
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-admin');
@@ -415,7 +415,7 @@ class AdminController extends CI_Controller
             $fechaactual = date('Y-m-d'); // 2016-12-29
             $nuevafecha = strtotime('-21 year', strtotime($fechaactual)); //Se resta un año menos
             $data['fechamax'] = date('Y-m-d', $nuevafecha);
-            $this->load->view('admin/template', $data);
+            $this->load->view('admin/templateAdmin', $data);
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-admin');
@@ -473,7 +473,7 @@ class AdminController extends CI_Controller
             $nuevafecha = strtotime('-21 year', strtotime($fechaactual)); //Se resta un año menos
             $data['fechamax'] = date('Y-m-d', $nuevafecha);
             $data['contenido'] = 'admin/docenteEdit';
-            $this->load->view('admin/template', $data);
+            $this->load->view('admin/templateAdmin', $data);
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-admin');
@@ -567,7 +567,7 @@ class AdminController extends CI_Controller
             $data['query'] = PostulateJobEloquent::getReportPostulations($career_id);
             //echo json_encode($data['query']);
             $data['contenido'] = 'admin/postulacionTable';
-            $this->load->view('admin/template', $data);
+            $this->load->view('admin/templateAdmin', $data);
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-admin');
@@ -615,7 +615,7 @@ class AdminController extends CI_Controller
         if ($this->session->userdata('user_rol') == 'admin') {
             $data['postulacion'] = PostulateJobEloquent::getPostulation($id);
             $data['contenido'] = 'admin/postulacionEdit';
-            $this->load->view('admin/template', $data);
+            $this->load->view('admin/templateAdmin', $data);
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-admin');
@@ -653,7 +653,7 @@ class AdminController extends CI_Controller
         if ($this->session->userdata('user_rol') == 'admin') {
             $data['perfil'] = AdminEloquent::findOrFail($this->session->userdata('user_id'));
             $data['contenido'] = 'admin/adminPerfil';
-            $this->load->view('admin/template', $data);
+            $this->load->view('admin/templateAdmin', $data);
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-admin');
@@ -717,7 +717,7 @@ class AdminController extends CI_Controller
     {
         if ($this->session->userdata('user_rol') == 'admin') {
             $data['contenido'] = 'admin/adminCredencial';
-            $this->load->view('admin/template', $data);
+            $this->load->view('admin/templateAdmin', $data);
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-admin');

@@ -22,10 +22,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
     <!-- Custom CSS -->
     <link href="<?= base_url('public/assets/plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/lite/css/signin.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/lite/css/spinners.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/lite/css/style.min.css') ?>" rel="stylesheet">
+    
+    <link href="<?= base_url('public/lite/css/spinners.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('public/lite/css/style.css') ?>" rel="stylesheet">
     <link href="<?= base_url('public/lite/css/colors/golden.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('public/lite/css/signin.css') ?>" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -43,39 +44,38 @@
         <div class="card">
 
             <div class="card-header text-white" style="background-color: darkgoldenrod;">
-                <h3>Bienvenido(a)</h3>
-                <p class="font-weight-light my-1">Iniciar sesión</p>
+            <p class="font-weight-light my-1">INICIAR SESIÓN</p>
             </div>
             <div class="card-body">
+                <?php if ($this->session->flashdata('flashSuccess')) : ?>
+                    <div class="d-grid gap-2 px-3">
+                        <p class='mt-1 alert alert-success'> <?= $this->session->flashdata('flashSuccess') ?> </p>
+                    </div>
+                <?php endif ?>
+
+                <?php if ($this->session->flashdata('flashError')) : ?>
+                    <div class="d-grid gap-2 px-3">
+                        <p class='mt-1 alert alert-danger'> <?= $this->session->flashdata('flashError') ?> </p>
+                    </div>
+                <?php endif ?>
+
+                <?php if ($this->session->flashdata('flashInfo')) : ?>
+                    <div class="d-grid gap-2 px-3">
+                        <p class='mt-1 alert alert-info'> <?= $this->session->flashdata('flashInfo') ?> </p>
+                    </div>
+                <?php endif ?>
+
+                <?php if ($this->session->flashdata('flashWarning')) : ?>
+                    <div class="d-grid gap-2 px-3">
+                        <p class='mt-1 alert alert-warning'> <?= $this->session->flashdata('flashWarning') ?> </p>
+
+                    <?php endif ?>
+                    
+                <?= form_open('authcontroller/loginUser', ['class'=>'form-signin']) ?>
                 
-                    <!--<p class="mt-1 mb-3 text-muted">-->
-                        <?php if ($this->session->flashdata('flashSuccess')) : ?>
-                            <div class="d-grid gap-2 px-3">
-                    <p class='mt-1 alert alert-success'> <?= $this->session->flashdata('flashSuccess') ?> </p>
-                        <?php endif ?>
-
-                        <?php if ($this->session->flashdata('flashError')) : ?>
-                            <div class="d-grid gap-2 px-3">
-                    <p class='mt-1 alert alert-danger'> <?= $this->session->flashdata('flashError') ?> </p>
-                        <?php endif ?>
-
-                        <?php if ($this->session->flashdata('flashInfo')) : ?>
-                            <div class="d-grid gap-2 px-3">
-                    <p class='mt-1 alert alert-info'> <?= $this->session->flashdata('flashInfo') ?> </p>
-                        <?php endif ?>
-
-                        <?php if ($this->session->flashdata('flashWarning')) : ?>
-                            <div class="d-grid gap-2 px-3">
-                    <p class='mt-1 alert alert-warning'> <?= $this->session->flashdata('flashWarning') ?> </p>
-                        <?php endif ?>
-                    <!--</p>-->
-                </div>
-                <?= form_open('authcontroller/loginUser',  'class="form-signin"') ?>
-                <!--<img class="mb-4" src="<?= base_url('assets/img/logoJMV.jpg') ?>" width="172" height="200" id="logo">-->
-                <!--<img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->
                 <label for="inputEmail" class="sr-only">Usuario</label>
                 <input class="form-control" id="username" name="username" type="text" placeholder="Usuario" value="<?= set_value('username') ?>" size="50" required />
-                <br>
+                <br><br>
                 <label for="inputPassword" class="sr-only">Contraseña</label>
                 <input class="form-control" id="password" name="password" type="password" placeholder="Contraseña" value="<?= set_value('password') ?>" size="50" required />
                 <a class="btn btn-lg btn-warning" href="/">Regresar</a>&nbsp;&nbsp;

@@ -14,16 +14,16 @@
     <link href="<?= base_url('public/assets/plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="<?= base_url('public/lite/css/sticky-footer-navbar.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/lite/css/colors/spinners.css') ?>" id="theme" rel="stylesheet">
-    <link href="<?= base_url('public/lite/css/colors/style.css') ?>" id="theme" rel="stylesheet">
-    <link href="<?= base_url('public/lite/css/colors/golden.css') ?>" id="theme" rel="stylesheet">
 
+    <link href="<?= base_url('public/lite/css/spinners.css') ?>" rel="stylesheet">
+    
+    <link href="<?= base_url('public/lite/css/colors/golden.css') ?>" id="theme" rel="stylesheet">
+    <link href="<?= base_url('public/lite/css/sticky-footer-navbar.css') ?>" rel="stylesheet">
 </head>
 
 <!--<body class="fix-header fix-sidebar card-no-border">-->
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex fix-header flex-column h-100">
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
@@ -34,22 +34,22 @@
         <nav class="navbar navbar-expand-md navbar-toggleable-sm navbar-light">
             <a class="navbar-brand" href="#">
                 <!-- Logo icon --><b>
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                           
-                            <!-- Light Logo icon -->
-                            <img src="<?= base_url('public/assets/images/logo-mini.png')?>" alt="homepage" class="light-logo" width="60" height="60"/>
-                        </b>
-                        <!--End Logo icon -->
-                        <!-- Logo text --><span class="top-header-title">Bolsa laboral
-                         </span> </a>
-                        </b>
-                        <!--End Logo icon -->
+                    <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+
+                    <!-- Light Logo icon -->
+                    <img src="<?= base_url('public/assets/images/logo-mini.png') ?>" alt="homepage" class="light-logo" width="60" height="60" />
+                </b>
+                <!--End Logo icon -->
+                <!-- Logo text --><span class="top-header-title">Bolsa laboral
+                </span> </a>
+            </b>
+            <!--End Logo icon -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <!--<ul class="navbar-nav mr-auto">-->
-                <ul class="navbar-nav mr-auto mb-2 mb-md-0">                    
+                <ul class="navbar-nav mr-auto mb-2 mb-md-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/users">
                             <i class="fa fa-area-chart"></i>
@@ -80,10 +80,11 @@
                     }
                     ?>
                 </ul>
-                <ul class="d-flex navbar-nav">
+                <!--<ul class="d-flex navbar-nav">-->
+                <ul class="navbar-nav my-lg-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                            <strong><?= $this->session->userdata('user_rol_title') . ' ' . $this->session->userdata('user_name') . ' ' . $this->session->userdata('user_paterno') ?></strong><i class="fa fa-user fa-fw"></i>
+                            <strong><?= $this->session->userdata('user_condicion') . ' ' . $this->session->userdata('user_name') . ' ' . $this->session->userdata('user_paterno') ?>&nbsp;</strong><i class="fa fa-user fa-fw"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="/users/credenciales">
@@ -92,7 +93,8 @@
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
-                            <li><form class="text-center ml-1" action="/logout">
+                            <li>
+                                <form class="text-center ml-1" action="/logout">
                                     <input class="btn btn-primary" id="btnLogout" type="submit" value="Cerrar sesión"></input>
                                 </form>
                             </li>
@@ -103,7 +105,7 @@
         </nav>
     </header>
 
-    <div class="page-wrapper mt-2">
+    <div class="main-wrapper mt-2">
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
@@ -115,21 +117,23 @@
             <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
 
         </main>
-    </div>
 
+    </div>
 
     <footer class="footer">
         <div class="container">
             <span class="text-muted">Place sticky footer content here.</span>
         </div>
     </footer>
-    </div>
+
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="<?= base_url('public/assets/plugins/data-table/js/jquery-3.7.0.js')?>"></script>
-    <script src="<?= base_url('public/assets/vendor/js/jquery-slim.min.js')?>"></script>
-    <script src="<?= base_url('public/assets/vendor/js/popper.min.js')?>"></script>
+    <script src="<?= base_url('public/assets/plugins/jquery/jquery.min.js') ?>"></script>
+    <!--<script src="<?= base_url('public/assets/plugins/datatable/js/jquery-3.7.0.js') ?>"></script>-->
+    <!--<script src="<?= base_url('public/assets/vendor/js/jquery-slim.min.js') ?>"></script>-->
+    <!--<script src="<?= base_url('public/assets/vendor/js/popper.min.js') ?>"></script>-->
 
     <script src="<?= base_url('public/assets/plugins/bootstrap/js/tether.min.js') ?>"></script>
     <script src="<?= base_url('public/assets/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>

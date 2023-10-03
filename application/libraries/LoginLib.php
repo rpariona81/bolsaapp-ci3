@@ -36,6 +36,7 @@ class LoginLib
                         'user_email' => $user['email'],
                         'user_id' => $user['id'],
                         'user_rol' => $user['rolename'],
+                        'user_condicion' => $user['graduated'],
                         'user_rol_id' => $user['role_id'],
                         'user_rol_title' => $rol['slug']
                     );
