@@ -38,7 +38,8 @@ class AppController extends CI_Controller
             $data['queryVigentes'] = Offerjobeloquent::getOffersjobsVigentes($this->session->userdata('user_carrera_id'));
             $data['queryNoVigentes'] = Offerjobeloquent::getOffersjobsNoVigentes($this->session->userdata('user_carrera_id'));
             //$data['query'] = Offerjobeloquent::getOffersjobsByPerfil($this->session->userdata('user_carrera_id'));
-            $this->load->view('app/layout/main', $data);
+            //$this->load->view('app/layout/main', $data);
+            $this->load->view('app/layout/templateApp', $data);
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-login');

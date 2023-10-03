@@ -33,18 +33,22 @@ File: scss
 /*Top bar
 *******************/
 .topbar {
-  background: #FAC634; }
+  background: #d1a52d; }
   .topbar .navbar-header {
     background: rgba(0, 0, 0, 0.05); }
   .topbar .top-navbar .navbar-header .navbar-brand .dark-logo {
     display: none; }
   .topbar .top-navbar .navbar-header .navbar-brand .light-logo {
     display: inline-block;
-    color: rgba(255, 255, 255, 0.8); }
+    color: rgba(45, 39, 23, 0.8); }
   .topbar .navbar-light .navbar-nav .nav-item > a.nav-link {
-    color: #ffffff !important; }
+    color: #ffffff !important; 
+    font-size: medium;
+    text-shadow: 0.1em 0.1em 0.2em black;}
     .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:hover, .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:focus {
-      color: rgba(255, 255, 255, 0.8) !important; }
+      color: rgba(255, 255, 255, 0.8) !important; 
+      font-size: medium;
+      text-shadow: 0.1em 0.1em 0.2em black;}
 
 /*******************
 /*General Elements
@@ -149,7 +153,8 @@ Personal Colors
 
 .topbar .top-header-title {
     color: #312682d9 ;
-font-weight: bolder	}
+    font-weight: bolder;
+    text-shadow: 0.1em 0.1em 0.2em #99abb4;}	}
 
 .login-logo {
   display: block;

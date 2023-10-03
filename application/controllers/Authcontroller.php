@@ -8,7 +8,13 @@ class AuthController extends CI_Controller {
     public function index_User()
     {
         //$this->load->view('auth/loginUser');
-        $this->load->view('auth/testlogin');
+        //$this->load->view('auth/testlogin');
+        if($this->session->userdata('isLogged')){
+            redirect('/admin');
+        }else{
+            $this->load->view('auth/loginUser');
+        }
+        
     }
 
     public function loginUser()
@@ -30,7 +36,12 @@ class AuthController extends CI_Controller {
 
     public function index_Admin()
     {
-        $this->load->view('auth/loginAdmin');
+        if($this->session->userdata('isLogged')){
+            redirect('/admin');
+        }else{
+            $this->load->view('auth/loginAdmin');
+        }
+        
     }
 
     public function loginAdmin()
