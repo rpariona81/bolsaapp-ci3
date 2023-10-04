@@ -207,11 +207,11 @@ a.link:focus {
 Personal Colors
 *******************/
 .bg-secondary {
-	background-color: #312682d9 !important;
+	background-color: #302682 !important;
 }
 
 .topbar .top-header-title {
-	color: #312682d9;
+	color: #302682;
 	font-weight: bolder;
 	text-shadow: 0.1em 0.1em 0.2em #99abb4;
 }

@@ -1,117 +1,137 @@
-<div class="align-items-md-stretch mt-5">
-    <div class="card">
-        <div class="card-header">
-            <h4 class="card-title">Editar convocatoria</h4>
-        </div>
-        <div class="card-body">
-            <?= form_open('admincontroller/actualizaConvocatoria', array('class' => 'row g-3 needs-validation')); ?>
-            <div class="col-md-4">
-                <label for="title" class="form-label">Título</label>
-                <input type="hidden" value="<?= $convocatoria->id ?>" name="id" id="id">
-                <input type="text" class="form-control" id="title" name="title" minlength="10" value="<?= $convocatoria->title ?>">
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
-            </div>
-            <div class="col-md-4">
-                <label for="type_offer" class="form-label">Tipo de convocatoria</label>
-                <select class="form-select" id="type_offer" name="type_offer" aria-label="Default select example">
-                    <option value="">Seleccione</option>
-                    <option value="Tiempo parcial" <?= $convocatoria->type_offer == 'Tiempo parcial' ? ' selected="selected"' : ''; ?>>Tiempo parcial</option>
-                    <option value="Tiempo completo" <?= $convocatoria->type_offer == 'Tiempo completo' ? ' selected="selected"' : ''; ?>>Tiempo completo</option>
-                    <option value="Prácticas pre-profesionales" <?= $convocatoria->type_offer == 'Prácticas pre-profesionales' ? ' selected="selected"' : ''; ?>>Prácticas pre-profesionales</option>
-                    <option value="Prácticas profesionales" <?= $convocatoria->type_offer == 'Prácticas profesionales' ? ' selected="selected"' : ''; ?>>Prácticas profesionales</option>
-                    <option value="Empleo temporal" <?= $convocatoria->type_offer == 'Empleo temporal' ? ' selected="selected"' : ''; ?>>Empleo temporal</option>
-                </select>
-            </div>
-
-            <div class="col-md-4">
-                <label for="career_id" class="form-label">Programa de estudios</label>
-                <select class="form-select" id="career_id" name="career_id" aria-label="Default select example">
-                    <option value="">Seleccione</option>
-                    <option value="1" <?= $convocatoria->career_id == 1 ? ' selected="selected"' : ''; ?>>Arquitectura de Plataformas y Servicios de Tecnologías de la Información</option>
-                    <option value="2" <?= $convocatoria->career_id == 2 ? ' selected="selected"' : ''; ?>>Enfermería Técnica</option>
-                    <option value="3" <?= $convocatoria->career_id == 3 ? ' selected="selected"' : ''; ?>>Farmacia Técnica</option>
-                    <option value="4" <?= $convocatoria->career_id == 4 ? ' selected="selected"' : ''; ?>>Tecnología Pesquera y Acuícola</option>
-                    <option value="5" <?= $convocatoria->career_id == 5 ? ' selected="selected"' : ''; ?>>Desarrollo pesquero y acuícola</option>
-                </select>
-            </div>
-            <div class="col-6">
-                <label for="employer" class="form-label">Empleador/Empresa</label>
-                <input type="text" class="form-control text-center" id="employer" name="employer" value="<?= $convocatoria->employer ?>" required>
-                <div class="invalid-feedback">
-                    Please provide a valid city.
-                </div>
-            </div>
-            <div class="col-6">
-                <label for="email_employer" class="form-label">Correo de empleador</label>
-                <input type="email" class="form-control text-center" id="email_employer" name="email_employer" value="<?= $convocatoria->email_employer ?>" required>
-                <div class="invalid-feedback">
-                    Please provide a valid city.
-                </div>
-            </div>
-            <div class="col-md-12">
-                <label for="detail" class="form-label">Detalle</label>
-                <textarea id="detail" name="detail" minlength="30"><?= $convocatoria->detail ?></textarea>
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
-            </div>
-            <div class="col-3">
-                <label for="ubicacion" class="form-label">Ciudad/Localidad</label>
-                <input type="text" class="form-control text-center" id="ubicacion" name="ubicacion" value="<?= $convocatoria->ubicacion ?>" required>
-                <div class="invalid-feedback">
-                    Please provide a valid city.
-                </div>
-            </div>
-            <div class="col-md-3">
-                <label for="vacancy_numbers" class="form-label"># Vacantes</label>
-                <input type="number" class="form-control text-center" id="vacancy_numbers" min="1" max="30" data-toggle="tooltip" data-placement="top" title="Mínimo 1, Máximo 30" name="vacancy_numbers" value="<?= $convocatoria->vacancy_numbers ?>">
-                <div class="invalid-feedback">
-                    Please provide a valid city.
-                </div>
-            </div>
-            <div class="col-md-3">
-                <label for="salary" class="form-label">Sueldo</label>
-                <input type="number" class="form-control text-center" id="salary" min="100" max="4000" data-toggle="tooltip" data-placement="top" title="Mínimo 100, Máximo 4000" name="salary" value="<?= $convocatoria->salary ?>">
-                <div class="invalid-feedback">
-                    Please provide a valid city.
-                </div>
-            </div>
-            <div class="col-3">
-                <label for="turn_horary" class="form-label">Horarios</label>
-                <input type="text" class="form-control text-center" id="turn_horary" name="turn_horary" value="<?= $convocatoria->turn_horary ?>" required>
-                <div class="invalid-feedback">
-                    Please provide a valid city.
-                </div>
-            </div>
-
-            <div class="col-12">
-                <div class="col-md-3">
-                    <label for="date_publish" class="form-label">Fecha publicación</label>
-                    <input type="date" class="form-control text-center" id="date_publish" name="date_publish" value="<?= date_format($convocatoria->date_publish, 'Y-m-d') ?>" required>
-                    <div class="valid-feedback">
-                        Looks good!
+<!-- ============================================================== -->
+<!-- Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<div class="row page-titles">
+    <div class="col-md-5 col-8 align-self-center">
+        <h3 class="text-primary m-b-0 m-t-0">CONVOCATORIAS</h3>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+<div class="row">
+    <!-- column -->
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-3 pb-3 border-bottom">Editar convocatoria</h4>
+                <?= form_open('admincontroller/actualizaConvocatoria', array('class' => 'row g-3 needs-validation')); ?>
+                <div class="form-row">
+                    <div class="col-md-4">
+                        <div class="form-floating mb-3">
+                            
+                            <input type="hidden" value="<?= $convocatoria->id ?>" name="id" id="id">
+                            <label for="title">Título</label>
+                            <input type="text" class="form-control" id="title" name="title" minlength="10" value="<?= $convocatoria->title ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-floating mb-3">
+                            <label for="type_offer" class="form-label">Tipo de convocatoria</label>
+                            <select class="form-control" id="type_offer" name="type_offer" aria-label="Default select example">
+                                <option value="">Seleccione</option>
+                                <option value="Tiempo parcial" <?= $convocatoria->type_offer == 'Tiempo parcial' ? ' selected="selected"' : ''; ?>>Tiempo parcial</option>
+                                <option value="Tiempo completo" <?= $convocatoria->type_offer == 'Tiempo completo' ? ' selected="selected"' : ''; ?>>Tiempo completo</option>
+                                <option value="Prácticas pre-profesionales" <?= $convocatoria->type_offer == 'Prácticas pre-profesionales' ? ' selected="selected"' : ''; ?>>Prácticas pre-profesionales</option>
+                                <option value="Prácticas profesionales" <?= $convocatoria->type_offer == 'Prácticas profesionales' ? ' selected="selected"' : ''; ?>>Prácticas profesionales</option>
+                                <option value="Empleo temporal" <?= $convocatoria->type_offer == 'Empleo temporal' ? ' selected="selected"' : ''; ?>>Empleo temporal</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-floating mb-3">
+                            <label for="career_id" class="form-label">Programa de estudios</label>
+                            <select class="form-control" id="career_id" name="career_id" aria-label="Default select example">
+                                <option value="">Seleccione</option>
+                                <option value="1" <?= $convocatoria->career_id == 1 ? ' selected="selected"' : ''; ?>>Arquitectura de Plataformas y Servicios de Tecnologías de la Información</option>
+                                <option value="2" <?= $convocatoria->career_id == 2 ? ' selected="selected"' : ''; ?>>Enfermería Técnica</option>
+                                <option value="3" <?= $convocatoria->career_id == 3 ? ' selected="selected"' : ''; ?>>Farmacia Técnica</option>
+                                <option value="4" <?= $convocatoria->career_id == 4 ? ' selected="selected"' : ''; ?>>Tecnología Pesquera y Acuícola</option>
+                                <option value="5" <?= $convocatoria->career_id == 5 ? ' selected="selected"' : ''; ?>>Desarrollo pesquero y acuícola</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <label for="date_vigency" class="form-label">Fecha límite</label>
-                    <input type="date" class="form-control text-center" id="date_vigency" name="date_vigency" value="<?= date_format($convocatoria->date_vigency, 'Y-m-d') ?>" onchange="validaFechas();" required>
-                    <div class="valid-feedback">
-                        Looks good!
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                            <label for="employer" class="form-label">Empleador/Empresa</label>
+                            <input type="text" class="form-control text-center" id="employer" name="employer" value="<?= $convocatoria->employer ?>" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                            <label for="email_employer" class="form-label">Correo de empleador</label>
+                            <input type="email" class="form-control text-center" id="email_employer" name="email_employer" value="<?= $convocatoria->email_employer ?>" required>
+                        </div>
                     </div>
                 </div>
-
-
-                <div class="float-end">
-                    <a href="/admin/convocatorias" class="btn btn-danger" type="button">Cancelar</a>
-                    <input class="btn btn-primary" type="submit" value="Actualizar convocatoria"></input>
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <div class="form-floating mb-3">
+                            <label for="detail" class="form-label">Detalle</label>
+                            <textarea id="detail" name="detail" minlength="30"><?= $convocatoria->detail ?></textarea>
+                        </div>
+                    </div>
                 </div>
+                <div class="form-row">
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3">
+                            <label for="ubicacion" class="form-label">Ciudad/Localidad</label>
+                            <input type="text" class="form-control text-center" id="ubicacion" name="ubicacion" value="<?= $convocatoria->ubicacion ?>" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3">
+                            <label for="vacancy_numbers" class="form-label"># Vacantes</label>
+                            <input type="number" class="form-control text-center" id="vacancy_numbers" min="1" max="30" data-toggle="tooltip" data-placement="top" title="Mínimo 1, Máximo 30" name="vacancy_numbers" value="<?= $convocatoria->vacancy_numbers ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3">
+                            <label for="salary" class="form-label">Sueldo</label>
+                            <input type="number" class="form-control text-center" id="salary" min="100" max="4000" data-toggle="tooltip" data-placement="top" title="Mínimo 100, Máximo 4000" name="salary" value="<?= $convocatoria->salary ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3">
+                            <label for="turn_horary" class="form-label">Horarios</label>
+                            <input type="text" class="form-control text-center" id="turn_horary" name="turn_horary" value="<?= $convocatoria->turn_horary ?>" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3">
+                            <label for="date_publish" class="form-label">Fecha publicación</label>
+                            <input type="date" class="form-control text-center" id="date_publish" name="date_publish" value="<?= date_format($convocatoria->date_publish, 'Y-m-d') ?>" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3">
+                            <label for="date_vigency" class="form-label">Fecha límite</label>
+                            <input type="date" class="form-control text-center" id="date_vigency" name="date_vigency" value="<?= date_format($convocatoria->date_vigency, 'Y-m-d') ?>" onchange="validaFechas();" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-6 mx-auto">
+                        <div class="d-md-flex align-items-center mt-3">
+                            <a href="/admin/convocatorias" class="btn btn-danger px-4" type="button">Cancelar</a>
+                            &nbsp;&nbsp;
+                            <input class="btn btn-info pull-right font-weight-medium rounded-pill px-4" type="submit" value="Actualizar convocatoria" onclick="tinyMCE.triggerSave(true,true);"></input>
+                        </div>
+                    </div>
+                </div>
+                <?= form_close() ?>
             </div>
-            <?= form_close() ?>
         </div>
     </div>
 </div>
+
 <script>
     $(document).ready(function() {
         $(':input[type="number"]').change(function() {

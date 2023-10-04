@@ -43,7 +43,7 @@
         </div>
         <div class="card">
 
-            <div class="card-header text-white" style="background-color: slateblue;">
+            <div class="card-header text-white bg-secondary">
                 <!--<h3 class="card-title">Bienvenido(a)</h3>-->
                 <p class="font-weight-light my-1">INICIAR SESIÓN</p>
             </div>
@@ -80,7 +80,7 @@
                     <label for="inputPassword" class="sr-only">Contraseña</label>
                     <input class="form-control" id="password" name="password" type="password" placeholder="Contraseña" value="<?= set_value('password') ?>" size="50" required />
                     <a class="btn btn-lg btn-warning" href="/">Regresar</a>&nbsp;&nbsp;
-                    <input class="btn btn-lg btn-primary" id="btnLogin" type="submit" value="Ingresar"></input>
+                    <input class="btn btn-lg bg-secondary text-white" id="btnLogin" type="submit" value="Ingresar"></input>
                     <!--<button class="btn btn-lg btn-primary" type="submit">Ingresar</button>-->
                     <?= form_close() ?>
             </div>

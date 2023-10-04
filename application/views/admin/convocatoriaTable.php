@@ -5,8 +5,10 @@
     <div class="col-md-5 col-8 align-self-center">
         <h3 class="text-primary m-b-0 m-t-0">CONVOCATORIAS</h3>
     </div>
-    <div class="col-md-7 col-4 align-self-center">
-        <a class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down" data-toggle="tooltip" data-placement="bottom" title="Crear nuevo registro" href="/admin/newconvocatoria">Nueva convocatoria &nbsp;<i class="fa fa-plus"></i></a>
+    <div class="col-md-7 col-4 mx-auto">
+        <div class="d-md-flex align-items-center">
+            <a class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down" data-toggle="tooltip" data-placement="bottom" title="Crear nuevo registro" href="/admin/newconvocatoria">Nueva convocatoria &nbsp;<i class="fa fa-plus"></i></a>
+        </div>
     </div>
 </div>
 <!-- ============================================================== -->

@@ -17,132 +17,120 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <?= form_open('admincontroller/creaConvocatoria', array('id' => 'FRM_DATOS', 'class' => 'row g-3 needs-validation', 'onsubmit' => 'grabar.disabled = true; return true;')); ?>
-                <div class="col-md-4">
-                    <div class="form-floating mb-3">
-                        <label for="title" class="form-label">Título</label>
-                        <input type="text" class="form-control" id="title" name="title" minlength="10" value="<?php echo set_value('title') ?>" required>
-                        <div class="valid-feedback">
-                            Looks good!
+                <h4 class="card-title mb-3 pb-3 border-bottom">Registro de convocatoria</h4>
+                <?= form_open('admincontroller/creaConvocatoria', array('id' => 'FRM_DATOS', 'class' => 'needs-validation', 'onsubmit' => 'grabar.disabled = true; return true;')); ?>
+                <div class="form-row">
+                    <div class="col-md-4">
+                        <div class="form-floating mb-3">
+                            <label for="title">Título</label>
+                            <input type="text" class="form-control" id="title" name="title" minlength="10" value="<?php echo set_value('title') ?>" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-floating mb-3">
+                            <label for="type_offer" class="form-label">Tipo de convocatoria</label>
+                            <select class="form-control" id="type_offer" name="type_offer" aria-label="Default select example" required>
+                                <option value="" selected>Seleccione</option>
+                                <option value="Tiempo parcial">Tiempo parcial</option>
+                                <option value="Tiempo completo">Tiempo completo</option>
+                                <option value="Prácticas pre-profesionales">Prácticas pre-profesionales</option>
+                                <option value="Prácticas profesionales">Prácticas profesionales</option>
+                                <option value="Empleo temporal">Empleo temporal</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-floating mb-3">
+                            <label for="career_id" class="form-label">Programa de estudios</label>
+                            <select class="form-control" id="career_id" name="career_id" aria-label="Default select example" required>
+                                <option value="" selected>Seleccione</option>
+                                <option value="1">Arquitectura de Plataformas y Servicios de Tecnologías de la Información</option>
+                                <option value="2">Enfermería Técnica</option>
+                                <option value="3">Farmacia Técnica</option>
+                                <option value="4">Tecnología Pesquera y Acuícola</option>
+                                <option value="5">Desarrollo pesquero y acuícola</option>
+                            </select>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="form-floating mb-3">
-                        <label for="type_offer" class="form-label">Tipo de convocatoria</label>
-                        <select class="form-control" id="type_offer" name="type_offer" aria-label="Default select example" required>
-                            <option value="" selected>Seleccione</option>
-                            <option value="Tiempo parcial">Tiempo parcial</option>
-                            <option value="Tiempo completo">Tiempo completo</option>
-                            <option value="Prácticas pre-profesionales">Prácticas pre-profesionales</option>
-                            <option value="Prácticas profesionales">Prácticas profesionales</option>
-                            <option value="Empleo temporal">Empleo temporal</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <label for="career_id" class="form-label">Programa de estudios</label>
-                    <select class="form-control" id="career_id" name="career_id" aria-label="Default select example" required>
-                        <option value="" selected>Seleccione</option>
-                        <option value="1">Arquitectura de Plataformas y Servicios de Tecnologías de la Información</option>
-                        <option value="2">Enfermería Técnica</option>
-                        <option value="3">Farmacia Técnica</option>
-                        <option value="4">Tecnología Pesquera y Acuícola</option>
-                        <option value="5">Desarrollo pesquero y acuícola</option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="employer" class="form-label">Empleador/Empresa</label>
-                    <input type="text" class="form-control text-center" id="employer" name="employer" value="<?php echo set_value('employer') ?>" required>
-                    <div class="invalid-feedback">
-                        Please provide a valid city.
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <label for="email_employer" class="form-label">Correo de empleador</label>
-                    <input type="email" class="form-control text-center" id="email_employer" name="email_employer" value="<?php echo set_value('email_employer') ?>" required>
-                    <div class="invalid-feedback">
-                        Please provide a valid city.
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <label for="detail" class="form-label">Detalle</label>
-                    <!--<textarea class="form-control" id="detail" name="detail" minlength="30" required>< ?php echo set_value('detail') ?></textarea>-->
-                    <!--<textarea class="form-control" id="detail" name="detail" minlength="30">< ?php echo set_value('detail') ?></textarea>-->
-                    <textarea class="form-control" id="detail" name="detail"></textarea>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-3">
-                        <label for="ubicacion" class="form-label">Ciudad/Localidad</label>
-                        <input type="text" class="form-control text-center" id="ubicacion" name="ubicacion" value="<?php echo set_value('ubicacion') ?>" required>
-                        <div class="invalid-feedback">
-                            Please provide a valid city.
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                            <label for="employer" class="form-label">Empleador/Empresa</label>
+                            <input type="text" class="form-control text-center" id="employer" name="employer" value="<?php echo set_value('employer') ?>" required>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                            <label for="email_employer" class="form-label">Correo de empleador</label>
+                            <input type="email" class="form-control text-center" id="email_employer" name="email_employer" value="<?php echo set_value('email_employer') ?>" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <div class="form-floating mb-3">
+                            <label for="detail" class="form-label">Detalle</label>
+                            <!--<textarea class="form-control" id="detail" name="detail" minlength="30" required>< ?php echo set_value('detail') ?></textarea>-->
+                            <!--<textarea class="form-control" id="detail" name="detail" minlength="30">< ?php echo set_value('detail') ?></textarea>-->
+                            <textarea class="form-control" id="detail" name="detail"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
                     <div class="col-md-3">
-                        <label for="vacancy_numbers" class="form-label"># Vacantes</label>
-                        <input type="number" class="form-control text-center" min="1" max="30" data-toggle="tooltip" data-placement="top" title="Mínimo 1, Máximo 30" id="vacancy_numbers" name="vacancy_numbers" value="<?php echo set_value('vacancy_numbers') ?>" required>
-                        <div class="invalid-feedback">
-                            Please provide a valid city.
+                        <div class="form-floating mb-3">
+                            <label for="ubicacion" class="form-label">Ciudad/Localidad</label>
+                            <input type="text" class="form-control text-center" id="ubicacion" name="ubicacion" value="<?php echo set_value('ubicacion') ?>" required>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <label for="salary" class="form-label">Sueldo</label>
-                        <input type="number" class="form-control text-center" id="salary" min="100" max="4000" data-toggle="tooltip" data-placement="top" title="Mínimo 100, Máximo 4000" name="salary" value="<?php echo set_value('salary') ?>">
-                        <div class="invalid-feedback">
-                            Please provide a valid city.
+                        <div class="form-floating mb-3">
+                            <label for="vacancy_numbers" class="form-label"># Vacantes</label>
+                            <input type="number" class="form-control text-center" min="1" max="30" data-toggle="tooltip" data-placement="top" title="Mínimo 1, Máximo 30" id="vacancy_numbers" name="vacancy_numbers" value="<?php echo set_value('vacancy_numbers') ?>" required>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <label for="turn_horary" class="form-label">Horarios</label>
-                        <input type="text" class="form-control text-center" id="turn_horary" name="turn_horary" value="<?php echo set_value('turn_horary') ?>" required>
-                        <div class="invalid-feedback">
-                            Please provide a valid city.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-
-                    <div class="col-md-3">
-                        <label for="date_publish" class="form-label">Fecha publicación</label>
-                        <input type="date" class="form-control text-center" id="date_publish" name="date_publish" value="<?php echo set_value('date_publish') ?>" required>
-                        <div class="valid-feedback">
-                            Looks good!
+                        <div class="form-floating mb-3">
+                            <label for="salary" class="form-label">Sueldo</label>
+                            <input type="number" class="form-control text-center" id="salary" min="100" max="4000" data-toggle="tooltip" data-placement="top" title="Mínimo 100, Máximo 4000" name="salary" value="<?php echo set_value('salary') ?>">
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <label for="date_vigency" class="form-label">Fecha límite</label>
-                        <input type="date" class="form-control text-center" id="date_vigency" name="date_vigency" value="<?php echo set_value('date_vigency') ?>" onchange="validaFechas();" required>
-                        <div class="valid-feedback">
-                            Looks good!
+                        <div class="form-floating mb-3">
+                            <label for="turn_horary" class="form-label">Horarios</label>
+                            <input type="text" class="form-control text-center" id="turn_horary" name="turn_horary" value="<?php echo set_value('turn_horary') ?>" required>
                         </div>
                     </div>
                 </div>
-                <div class="col-12">
-                    <div class="d-md-flex align-items-center mt-3">
-                        <div class="form-check">
-                            <a href="/admin/convocatorias" class="btn btn-danger" type="button">Cancelar</a>
+                <div class="form-row">
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3">
+                            <label for="date_publish" class="form-label">Fecha publicación</label>
+                            <input type="date" class="form-control text-center" id="date_publish" name="date_publish" value="<?php echo set_value('date_publish') ?>" required>
                         </div>
-                        <div class="ms-auto mt-3 mt-md-0">
-                            <input class="
-                                btn btn-info
-                                font-weight-medium
-                                rounded-pill
-                                px-4
-                              " type="submit" value="Crear convocatoria" onclick="tinyMCE.triggerSave(true,true);"></input>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3">
+                            <label for="date_vigency" class="form-label">Fecha límite</label>
+                            <input type="date" class="form-control text-center" id="date_vigency" name="date_vigency" value="<?php echo set_value('date_vigency') ?>" onchange="validaFechas();" required>
                         </div>
                     </div>
                 </div>
+                <div class="form-row">
+                    <div class="col-6 mx-auto">
+                        <div class="d-md-flex align-items-center mt-3">
+                            <a href="/admin/convocatorias" class="btn btn-danger px-4" type="button">Cancelar</a>
+                            &nbsp;&nbsp;
+                            <input class="btn btn-info pull-right font-weight-medium rounded-pill px-4" type="submit" value="Crear convocatoria" onclick="tinyMCE.triggerSave(true,true);"></input>
+                        </div>
+                    </div>
+                </div>
+                <?= form_close() ?>
             </div>
-            <?= form_close() ?>
         </div>
     </div>
 </div>
-
 
 <script>
     $(document).ready(function() {
