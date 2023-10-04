@@ -1,11 +1,11 @@
 <!-- ============================================================== -->
 <!-- Bread crumb and right sidebar toggle -->
 <!-- ============================================================== -->
-<div class="row page-titles">
+<!--<div class="row page-titles">
     <div class="col-md-5 col-8 align-self-center">
         <h3 class="text-primary m-b-0 m-t-0">NUEVA CONVOCATORIA</h3>
     </div>
-</div>
+</div>-->
 <!-- ============================================================== -->
 <!-- End Bread crumb and right sidebar toggle -->
 <!-- ============================================================== -->
@@ -16,19 +16,21 @@
     <!-- column -->
     <div class="col-12">
         <div class="card">
+            <div class="card-header bg-info">
+                <h4 class="card-title text-white">Registro de convocatoria</h4>
+            </div>
             <div class="card-body">
-                <h4 class="card-title mb-3 pb-3 border-bottom">Registro de convocatoria</h4>
                 <?= form_open('admincontroller/creaConvocatoria', array('id' => 'FRM_DATOS', 'class' => 'needs-validation', 'onsubmit' => 'grabar.disabled = true; return true;')); ?>
-                <div class="form-row">
+                <div class="row pt-3">
                     <div class="col-md-4">
-                        <div class="form-floating mb-3">
+                        <div class="mb-3">
                             <label for="title">Título</label>
                             <input type="text" class="form-control" id="title" name="title" minlength="10" value="<?php echo set_value('title') ?>" required>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-floating mb-3">
-                            <label for="type_offer" class="form-label">Tipo de convocatoria</label>
+                        <div class="mb-3">
+                            <label for="type_offer">Tipo de convocatoria</label>
                             <select class="form-control" id="type_offer" name="type_offer" aria-label="Default select example" required>
                                 <option value="" selected>Seleccione</option>
                                 <option value="Tiempo parcial">Tiempo parcial</option>
@@ -40,8 +42,8 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-floating mb-3">
-                            <label for="career_id" class="form-label">Programa de estudios</label>
+                        <div class="mb-3">
+                            <label for="career_id">Programa de estudios</label>
                             <select class="form-control" id="career_id" name="career_id" aria-label="Default select example" required>
                                 <option value="" selected>Seleccione</option>
                                 <option value="1">Arquitectura de Plataformas y Servicios de Tecnologías de la Información</option>
@@ -53,76 +55,76 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-row">
+                <div class="row pt-3">
                     <div class="col-md-6">
-                        <div class="form-floating mb-3">
-                            <label for="employer" class="form-label">Empleador/Empresa</label>
+                        <div class="mb-3">
+                            <label for="employer">Empleador/Empresa</label>
                             <input type="text" class="form-control text-center" id="employer" name="employer" value="<?php echo set_value('employer') ?>" required>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-floating mb-3">
-                            <label for="email_employer" class="form-label">Correo de empleador</label>
+                        <div class="mb-3">
+                            <label for="email_employer">Correo de empleador</label>
                             <input type="email" class="form-control text-center" id="email_employer" name="email_employer" value="<?php echo set_value('email_employer') ?>" required>
                         </div>
                     </div>
                 </div>
-                <div class="form-row">
+                <div class="row pt-3">
                     <div class="col-md-12">
-                        <div class="form-floating mb-3">
-                            <label for="detail" class="form-label">Detalle</label>
+                        <div class="mb-3">
+                            <label for="detail">Detalle</label>
                             <!--<textarea class="form-control" id="detail" name="detail" minlength="30" required>< ?php echo set_value('detail') ?></textarea>-->
-                            <!--<textarea class="form-control" id="detail" name="detail" minlength="30">< ?php echo set_value('detail') ?></textarea>-->
-                            <textarea class="form-control" id="detail" name="detail"></textarea>
+                            <textarea class="form-control" id="detail" name="detail" minlength="30"><?php echo set_value('detail') ?></textarea>
+                            <!--<textarea class="form-control" id="detail" name="detail"></textarea>-->
                         </div>
                     </div>
                 </div>
-                <div class="form-row">
+                <div class="row pt-3">
                     <div class="col-md-3">
-                        <div class="form-floating mb-3">
-                            <label for="ubicacion" class="form-label">Ciudad/Localidad</label>
+                        <div class="mb-3">
+                            <label for="ubicacion">Ciudad/Localidad</label>
                             <input type="text" class="form-control text-center" id="ubicacion" name="ubicacion" value="<?php echo set_value('ubicacion') ?>" required>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-floating mb-3">
-                            <label for="vacancy_numbers" class="form-label"># Vacantes</label>
+                        <div class="mb-3">
+                            <label for="vacancy_numbers"># Vacantes</label>
                             <input type="number" class="form-control text-center" min="1" max="30" data-toggle="tooltip" data-placement="top" title="Mínimo 1, Máximo 30" id="vacancy_numbers" name="vacancy_numbers" value="<?php echo set_value('vacancy_numbers') ?>" required>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-floating mb-3">
-                            <label for="salary" class="form-label">Sueldo</label>
+                        <div class="mb-3">
+                            <label for="salary">Sueldo</label>
                             <input type="number" class="form-control text-center" id="salary" min="100" max="4000" data-toggle="tooltip" data-placement="top" title="Mínimo 100, Máximo 4000" name="salary" value="<?php echo set_value('salary') ?>">
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-floating mb-3">
-                            <label for="turn_horary" class="form-label">Horarios</label>
+                        <div class="mb-3">
+                            <label for="turn_horary">Horarios</label>
                             <input type="text" class="form-control text-center" id="turn_horary" name="turn_horary" value="<?php echo set_value('turn_horary') ?>" required>
                         </div>
                     </div>
                 </div>
-                <div class="form-row">
+                <div class="row pt-3">
                     <div class="col-md-3">
-                        <div class="form-floating mb-3">
-                            <label for="date_publish" class="form-label">Fecha publicación</label>
+                        <div class="mb-3">
+                            <label for="date_publish">Fecha publicación</label>
                             <input type="date" class="form-control text-center" id="date_publish" name="date_publish" value="<?php echo set_value('date_publish') ?>" required>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-floating mb-3">
-                            <label for="date_vigency" class="form-label">Fecha límite</label>
+                        <div class="mb-3">
+                            <label for="date_vigency">Fecha límite</label>
                             <input type="date" class="form-control text-center" id="date_vigency" name="date_vigency" value="<?php echo set_value('date_vigency') ?>" onchange="validaFechas();" required>
                         </div>
                     </div>
                 </div>
-                <div class="form-row">
+                <div class="row pt-3">
                     <div class="col-6 mx-auto">
                         <div class="d-md-flex align-items-center mt-3">
-                            <a href="/admin/convocatorias" class="btn btn-danger px-4" type="button">Cancelar</a>
+                            <a href="/admin/convocatorias" class="btn btn-danger rounded-pill px-4" type="button">Cancelar</a>
                             &nbsp;&nbsp;
-                            <input class="btn btn-info pull-right font-weight-medium rounded-pill px-4" type="submit" value="Crear convocatoria" onclick="tinyMCE.triggerSave(true,true);"></input>
+                            <input class="btn btn-success pull-right font-weight-medium rounded-pill px-4" type="submit" value="Crear convocatoria" onclick="tinyMCE.triggerSave(true,true);"></input>
                         </div>
                     </div>
                 </div>

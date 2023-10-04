@@ -9,7 +9,7 @@
     <meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, material pro admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, material design, material dashboard bootstrap 5 dashboard template" />
     <meta name="description" content="Material Pro is powerful and clean admin dashboard template" />
     <meta name="robots" content="noindex,nofollow" />
-    <title>Material Pro Template by WrapPixel</title>
+    <title><?= getenv('APP_NAME') ?></title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('public/admin/assets/images/favicon.png') ?>" />
@@ -28,6 +28,17 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script src="<?= base_url('public/admin/tinymce/tinymce.min.js') ?>"></script>
+    <script>
+        tinymce
+            .init({
+                selector: 'textarea#detail',
+                plugins: "textcolor, lists code",
+                toolbar: " undo redo | bold italic | alignleft aligncenter alignright alignjustify \n\
+		              | bullist numlist outdent indent | forecolor backcolor table code"
+            });
+    </script>
 </head>
 
 <body>
@@ -107,7 +118,7 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <?= $this->session->userdata('user_rol_title')?>&nbsp;<i class="fa fa-user fa-fw"></i>
+                                <?= $this->session->userdata('user_rol_title') ?>&nbsp;<i class="fa fa-user fa-fw"></i>
                                 <!--<img src="<?= base_url('public/admin/assets/images/users/1.jpg') ?>" alt="user" width="30" class="profile-pic rounded-circle" />-->
                             </a>
                             <div class="dropdown-menu dropdown-menu-end user-dd animated flipInY">
@@ -116,8 +127,8 @@
                                         <img src="<?= base_url('public/admin/assets/images/users/1.jpg') ?>" alt="user" class="rounded-circle" width="60" />
                                     </div>-->
                                     <div class="ms-2">
-                                        <h4 class="mb-0 text-white"><?=$this->session->userdata('user_name') . ' ' . $this->session->userdata('user_paterno') ?></h4>
-                                        <p class="mb-0"><?=$this->session->userdata('user_email')?></p>
+                                        <h4 class="mb-0 text-white"><?= $this->session->userdata('user_name') . ' ' . $this->session->userdata('user_paterno') ?></h4>
+                                        <p class="mb-0"><?= $this->session->userdata('user_email') ?></p>
                                     </div>
                                 </div>
                                 <a class="dropdown-item" href="#"><i data-feather="user" class="feather-sm text-info me-1 ms-1"></i>
@@ -152,28 +163,28 @@
                             <span class="hide-menu">WebApp Bolsa laboral</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="javascript:void(0)" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/" aria-expanded="false">
                                 <i class="mdi mdi-gauge"></i>
                                 <span class="hide-menu">Panel de control </span>
                             </a>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="app-contacts.html" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Estudiantes</span></a>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/estudiantes" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Estudiantes</span></a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="app-contacts.html" aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">Docentes</span></a>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/docentes" aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">Docentes</span></a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="app-calendar.html" aria-expanded="false"><i class="mdi mdi-clipboard-check"></i><span class="hide-menu">Convocatorias</span></a>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/convocatorias" aria-expanded="false"><i class="mdi mdi-clipboard-check"></i><span class="hide-menu">Convocatorias</span></a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="app-chats.html" aria-expanded="false"><i class="mdi mdi-comment-processing-outline"></i><span class="hide-menu">Postulaciones</span></a>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/postulaciones" aria-expanded="false"><i class="mdi mdi-comment-processing-outline"></i><span class="hide-menu">Postulaciones</span></a>
                         </li>
                         <hr>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="app-invoice.html" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span class="hide-menu">Mi perfil</span></a>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/perfil" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span class="hide-menu">Mi perfil</span></a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="authentication-login1.html" aria-expanded="false"><i class="mdi mdi-directions"></i><span class="hide-menu">Cerrar sesión</span></a>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/logout" aria-expanded="false"><i class="mdi mdi-directions"></i><span class="hide-menu">Cerrar sesión</span></a>
                         </li>
                     </ul>
                 </nav>
@@ -217,7 +228,7 @@
             <!-- footer -->
             <!-- -------------------------------------------------------------- -->
             <footer class="footer text-center">
-                All Rights Reserved by Materialpro admin.
+                All Rights Reserved by <?= getenv('APP_NAME') ?>.
             </footer>
             <!-- -------------------------------------------------------------- -->
             <!-- End footer -->

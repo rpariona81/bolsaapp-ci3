@@ -10,6 +10,8 @@ use Illuminate\Support\Carbon;
 //use  \Illuminate\Database\Eloquent\Builder as DB;
 //use Illuminate\Support\Facades\DB as FacadesDB;
 
+//use Illuminate\Database\Eloquent\Model as Eloquent;
+
 class OfferJobEloquent extends BaseModel
 {
 
@@ -45,7 +47,7 @@ class OfferJobEloquent extends BaseModel
         'vacancy_numbers' => 'integer',
         'updated_at' => 'datetime:Y-m-d'
     ];
-
+    
     protected $appends = ['expired', 'flag'];
 
     public function getExpiredAttribute()
@@ -77,7 +79,7 @@ class OfferJobEloquent extends BaseModel
             return 1;
         }
     }
-
+    
     public static function selectOffersjob($id = NULL)
     {
         return OfferJobEloquent::leftjoin('t_careers', 't_offersjob.career_id', '=', 't_careers.id')
