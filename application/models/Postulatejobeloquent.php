@@ -1,6 +1,7 @@
 <?php
 
 use Db\BaseModel;
+use \Illuminate\Database\Capsule\Manager as DB;
 
 class PostulateJobEloquent extends BaseModel
 {
@@ -34,6 +35,20 @@ class PostulateJobEloquent extends BaseModel
         'status' => 'boolean'
     ];
 
+    protected $appends = ['flag'];
+
+    public function getFlagAttribute()
+    {
+        //return date_diff(date_create($this->date_vigency), date_create('now'))->d;
+        //https://blog.devgenius.io/how-to-find-the-number-of-days-between-two-dates-in-php-1404748b1e84
+        //return date_diff(date_create('now'),date_create($this->date_vigency))->format('%R%a days');return date_diff(date_create('now'),date_create($this->date_vigency))->format('%R%a days');
+        if ($this->status) {
+            return 'Activa';
+        } else {
+            return 'No activa';
+        }
+    }
+
     public static function getPostulations($user_id)
     {
         //return PostulateJobEloquent::where('user_id', '=',$user_id)->get();
@@ -61,15 +76,15 @@ class PostulateJobEloquent extends BaseModel
                 ->leftjoin('t_users', 't_postulatejob.user_id', '=', 't_users.id')
                 ->leftjoin('t_careers', 't_offersjob.career_id', '=', 't_careers.id')
                 ->select('t_postulatejob.id', 't_postulatejob.user_id', 't_postulatejob.offer_id', 't_postulatejob.result', 't_postulatejob.date_postulation', 't_postulatejob.filecv','t_postulatejob.status', 't_offersjob.title', 't_offersjob.type_offer', 't_offersjob.date_publish', 't_offersjob.date_vigency', 't_offersjob.salary', 't_offersjob.vacancy_numbers', 't_careers.career_title', 't_offersjob.career_id', 't_users.name', 't_users.paternal_surname', 't_users.maternal_surname', 't_users.email', 't_users.graduated', 't_users.mobile', 't_postulatejob.updated_at')
-                ->orderBy('t_postulatejob.date_postulation', 'desc')
+                ->orderBy('t_postulatejob.updated_at', 'desc')
                 ->get();
         } else {
             return PostulateJobEloquent::leftjoin('t_offersjob', 't_postulatejob.offer_id', '=', 't_offersjob.id')
                 ->leftjoin('t_users', 't_postulatejob.user_id', '=', 't_users.id')
                 ->leftjoin('t_careers', 't_offersjob.career_id', '=', 't_careers.id')
-                ->select('t_postulatejob.id', 't_postulatejob.user_id', 't_postulatejob.offer_id', 't_postulatejob.result', 't_postulatejob.date_postulation', 't_postulatejob.filecv','t_postulatejob.status', 't_offersjob.title', 't_offersjob.type_offer', 't_offersjob.date_publish', 't_offersjob.salary', 't_offersjob.date_vigency', 't_careers.career_title', 't_offersjob.career_id', 't_users.name', 't_users.paternal_surname', 't_users.maternal_surname', 't_users.email', 't_users.graduated', 't_users.mobile', 't_postulatejob.updated_at')
+                ->select('t_postulatejob.id', 't_postulatejob.user_id', 't_postulatejob.offer_id', 't_postulatejob.result', 't_postulatejob.date_postulation', 't_postulatejob.filecv','t_postulatejob.status', 't_offersjob.title', 't_offersjob.type_offer', 't_offersjob.date_publish', 't_offersjob.date_vigency', 't_offersjob.salary', 't_offersjob.vacancy_numbers', 't_careers.career_title', 't_offersjob.career_id', 't_users.name', 't_users.paternal_surname', 't_users.maternal_surname', 't_users.email', 't_users.graduated', 't_users.mobile', 't_postulatejob.updated_at')
                 ->where('t_offersjob.career_id', '=', $career_id)
-                ->orderBy('t_postulatejob.date_postulation', 'desc')
+                ->orderBy('t_postulatejob.updated_at', 'desc')
                 ->get();
         }
     }

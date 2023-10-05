@@ -49,6 +49,13 @@
                                     <td class="text-center"><?= $item->graduated ?></td>
                                     <td><?= $item->updated_at ?></td>
                                     <td>
+                                        <?php
+                                        if ($item->status) {
+                                            echo '<span class="badge bg-info">' . $item->flag . '</span>';
+                                        } else {
+                                            echo '<span class="badge bg-danger">' . $item->flag . '</span>';
+                                        }
+                                        ?>
                                         <div class="btn-group" role="group" aria-label="Basic example">
                                             <?php
                                             if ($item->status) {
@@ -61,7 +68,7 @@
                                                 //echo '<a class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Activar" href="<?= $item->id>"><i class="fa fa fa-eye"></i></a>';
                                                 echo form_open('admincontroller/activaDocente');
                                                 echo '<input type="hidden" id="id" name="id" value="' . $item->id . '">';
-                                                echo '<button type="submit" name="submit" class="btn btn-outline-warning btn-sm display-inline" data-toggle="tooltip" data-placement="bottom" title="Activar"><i class="fa fa-eye-slash"></i></button>';
+                                                echo '<button type="submit" name="submit" class="btn btn-outline-warning btn-sm display-inline" data-toggle="tooltip" data-placement="bottom" title="Activar"><i class="fa fa-eye"></i></button>';
                                                 echo form_close();
                                             }
                                             ?>

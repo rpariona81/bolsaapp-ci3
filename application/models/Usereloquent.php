@@ -46,6 +46,20 @@ class UserEloquent extends BaseModel
         'status' => 'boolean'
     ];
 
+    protected $appends = ['flag'];
+
+    public function getFlagAttribute()
+    {
+        //return date_diff(date_create($this->date_vigency), date_create('now'))->d;
+        //https://blog.devgenius.io/how-to-find-the-number-of-days-between-two-dates-in-php-1404748b1e84
+        //return date_diff(date_create('now'),date_create($this->date_vigency))->format('%R%a days');return date_diff(date_create('now'),date_create($this->date_vigency))->format('%R%a days');
+        if ($this->status) {
+            return 'Activo';
+        } else {
+            return 'Suspendido';
+        }
+    }
+
     public static function getUserBy($column, $value)
     {
         return UserEloquent::leftjoin('t_roles','t_users.role_id','=','t_roles.id')

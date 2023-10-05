@@ -38,8 +38,8 @@ class AppController extends CI_Controller
             $data['queryVigentes'] = Offerjobeloquent::getOffersjobsVigentes($this->session->userdata('user_carrera_id'));
             $data['queryNoVigentes'] = Offerjobeloquent::getOffersjobsNoVigentes($this->session->userdata('user_carrera_id'));
             //$data['query'] = Offerjobeloquent::getOffersjobsByPerfil($this->session->userdata('user_carrera_id'));
-            //$this->load->view('app/layout/main', $data);
-            $this->load->view('app/layout/templateApp', $data);
+            //$this->load->view('app/templateApp', $data);
+            $this->load->view('app/templateApp', $data);
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-login');
@@ -54,7 +54,7 @@ class AppController extends CI_Controller
             $data['convocatoria'] = Offerjobeloquent::selectOffersjob($id);
             $data['pagina'] = 'app/viewConvocatoria';
             //echo json_encode($data);
-            $this->load->view('app/layout/main', $data);
+            $this->load->view('app/templateApp', $data);
         } else {
             $this->session->set_flashdata('error', '');
             redirect('/wp-login');
@@ -66,7 +66,7 @@ class AppController extends CI_Controller
         if ($this->session->userdata('user_rol') != NULL) {
             $data['pagina'] = 'app/viewPerfil';
             $data['perfil'] = Usereloquent::findOrFail($this->session->userdata('user_id'));
-            $this->load->view('app/layout/main', $data);
+            $this->load->view('app/templateApp', $data);
         } else {
             $this->session->set_flashdata('error', '');
             redirect('/wp-login');
@@ -79,7 +79,7 @@ class AppController extends CI_Controller
             $data['query'] = Postulatejobeloquent::getPostulations($this->session->userdata('user_id'));
             $data['pagina'] = 'app/listPostulaciones';
             //echo json_encode($data['query']);
-            $this->load->view('app/layout/main', $data);
+            $this->load->view('app/templateApp', $data);
         } else {
             $this->session->set_flashdata('error', '');
             redirect('/wp-login');
@@ -281,7 +281,7 @@ class AppController extends CI_Controller
     {
         if ($this->session->userdata('user_rol') != NULL) {
             $data['pagina'] = 'app/viewCredencial';
-            $this->load->view('app/layout/main', $data);
+            $this->load->view('app/templateApp', $data);
         } else {
             $this->session->set_flashdata('error', '');
             redirect('/wp-login');

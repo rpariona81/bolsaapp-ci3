@@ -1,7 +1,7 @@
 <div class="align-items-md-stretch mt-5">
     <div class="card">
-        <div class="card-header">
-            <h4 class="card-title">Nuevo docente</h4>
+    <div class="card-header bg-info">
+            <h4 class="card-title text-white">Nuevo docente</h4>
         </div>
         <?= my_validation_errors(validation_errors()); ?>
         <div class="card-body">

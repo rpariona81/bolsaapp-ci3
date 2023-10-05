@@ -48,7 +48,7 @@ class OfferJobEloquent extends BaseModel
         'updated_at' => 'datetime:Y-m-d'
     ];
     
-    protected $appends = ['expired', 'flag'];
+    protected $appends = ['expired', 'flag','vigency'];
 
     public function getExpiredAttribute()
     {
@@ -70,6 +70,18 @@ class OfferJobEloquent extends BaseModel
         //return date_diff(date_create($this->date_vigency), date_create('now'))->d;
         //https://blog.devgenius.io/how-to-find-the-number-of-days-between-two-dates-in-php-1404748b1e84
         //return date_diff(date_create('now'),date_create($this->date_vigency))->format('%R%a days');return date_diff(date_create('now'),date_create($this->date_vigency))->format('%R%a days');
+        if ($this->status) {
+            return 'Activa';
+        } else {
+            return 'Inactiva';
+        }
+    }
+    
+    public function getVigencyAttribute()
+    {
+        //return date_diff(date_create($this->date_vigency), date_create('now'))->d;
+        //https://blog.devgenius.io/how-to-find-the-number-of-days-between-two-dates-in-php-1404748b1e84
+        //return date_diff(date_create('now'),date_create($this->date_vigency))->format('%R%a days');return date_diff(date_create('now'),date_create($this->date_vigency))->format('%R%a days');
         $origin = date_create('now');
         $target = date_create($this->date_vigency);
         $interval = date_diff($origin, $target)->format('%R%a');
@@ -79,7 +91,8 @@ class OfferJobEloquent extends BaseModel
             return 1;
         }
     }
-    
+
+
     public static function selectOffersjob($id = NULL)
     {
         return OfferJobEloquent::leftjoin('t_careers', 't_offersjob.career_id', '=', 't_careers.id')
@@ -126,7 +139,7 @@ class OfferJobEloquent extends BaseModel
         $contVigentes = 0;
         $contNoVigentes = 0;
         foreach ($convocatorias as $key) {
-            if ($key->flag == 1) {
+            if ($key->vigency == 1) {
                 $contVigentes++;
             } else {
                 $contNoVigentes++;

@@ -45,7 +45,7 @@
                         <tbody>
                             <?php foreach ($query as $item) : ?>
                                 <?php
-                                if ($item->flag == 0) {
+                                if ($item->vigency == 0) {
                                     echo '<tr class="text-black-50">';
                                 } else {
                                     echo '<tr class="text-info">';
@@ -60,14 +60,21 @@
                                 <td><?= date_format($item->date_vigency, 'd/m/Y') ?></td>
                                 <!--<td>< ?= $item->expired ?></td>-->
                                 <?php
-                                if ($item->flag == 0) {
-                                    echo '<td><span class="badge bg-danger">'.$item->expired.'</span></td>';
+                                if ($item->vigency == 0) {
+                                    echo '<td><span class="badge bg-secondary">'.$item->expired.'</span></td>';
                                 } else {
-                                    echo '<td><span class="badge bg-info">'.$item->expired.'</span></td>';
+                                    echo '<td><span class="badge bg-success">'.$item->expired.'</span></td>';
                                 } ?>
                                 <td class="text-center"><?= $item->cant_postulantes ?></td>
                                 <td><?= $item->updated_at ?></td>
                                 <td>
+                                <?php
+                                        if ($item->status) {
+                                            echo '<span class="badge bg-info">' . $item->flag . '</span>';
+                                        } else {
+                                            echo '<span class="badge bg-danger">' . $item->flag . '</span>';
+                                        }
+                                        ?>
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <?php
                                         if ($item->status) {
@@ -78,7 +85,7 @@
                                         } else {
                                             echo form_open('admincontroller/activaConvocatoria');
                                             echo '<input type="hidden" id="id" name="id" value="' . $item->id . '">';
-                                            echo '<button type="submit" name="submit" class="btn btn-outline-warning btn-sm display-inline" data-toggle="tooltip" data-placement="bottom" title="Activar"><i class="fa fa-eye-slash"></i></button>';
+                                            echo '<button type="submit" name="submit" class="btn btn-outline-warning btn-sm display-inline" data-toggle="tooltip" data-placement="bottom" title="Activar"><i class="fa fa-eye"></i></button>';
                                             echo form_close();
                                         }
                                         ?>

@@ -15,22 +15,23 @@
                     </div>
                     <div class="col-md-7 col-4 mx-auto">
                         <div class="mb-3">
-                        <div class="input-group mb-3">
-                            <select class="form-control" id="career_id" name="career_id" aria-label="Default select example" required>
-                                <option value="" selected>Todos los programas</option>
-                                <option value="1">Arquitectura de Plataformas y Servicios de Tecnologías de la Información</option>
-                                <option value="2">Enfermería Técnica</option>
-                                <option value="3">Farmacia Técnica</option>
-                                <option value="4">Tecnología Pesquera y Acuícola</option>
-                                <option value="5">Desarrollo pesquero y acuícola</option>
-                            </select>
-                            <button class="btn btn-warning pull-right font-weight-medium px-4" type="submit">
-                                <i class="ti-search"></i>
-                            </button>
-                        </div>
+                            <div class="input-group mb-3">
+                                <select class="form-control" id="career_id" name="career_id" aria-label="Default select example" required>
+                                    <option value="" selected>Todos los programas</option>
+                                    <option value="1">Arquitectura de Plataformas y Servicios de Tecnologías de la Información</option>
+                                    <option value="2">Enfermería Técnica</option>
+                                    <option value="3">Farmacia Técnica</option>
+                                    <option value="4">Tecnología Pesquera y Acuícola</option>
+                                    <option value="5">Desarrollo pesquero y acuícola</option>
+                                </select>
+                                <button class="btn btn-warning pull-right font-weight-medium px-4" type="submit">
+                                    <i class="ti-search"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <?= form_close() ?>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -66,21 +67,38 @@
                                     <td class="text-center"><?= date_format($item->date_postulation, 'd/m/Y') ?></td>
                                     <td><?= $item->updated_at ?></td>
                                     <td>
+                                        <?php
+                                        if ($item->status) {
+                                            echo '<span class="badge bg-info">' . $item->flag . '</span>';
+                                        } else {
+                                            echo '<span class="badge bg-danger">' . $item->flag . '</span>';
+                                        }
+                                        ?>
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            <a class="btn btn-outline-danger btn-sm" data-toggle="tooltip" data-placement="bottom" title="Descargar CV" target="_blank" download="<?= $item->filecv; ?>" href="<?= base_url('/uploads/filescv/' . $item->filecv); ?>"><i class="fas fa-file-pdf" title="<?= $item->filecv ?>"></i></a>
+                                            <a class="btn btn-outline-danger btn-sm" data-toggle="tooltip" data-placement="bottom" title="Descargar CV" target="_blank" download="<?= $item->filecv; ?>" href="<?= base_url('/uploads/filescv/' . $item->filecv); ?>">
+                                                <i class="fas fa-file-pdf" title="<?= $item->filecv ?>"></i>
+                                            </a>
                                             &nbsp;&nbsp;
                                             <?php
                                             if ($item->status) {
-                                                //echo '<a class="btn btn-outline-danger btn-sm" data-toggle="tooltip" data-placement="bottom" title="Desactivar" href="<?= $item->id ? >"><i class="fa fa-eye-slash"></i></a>';
-                                                echo form_open('admincontroller/desactivaPostulacion');
+                                                //echo 'funciona';
+                                                //$attributes = array('name' => 'admincontroller/desactivaPostulacion','id' => 'desactivaPostulacion', 'method' =>'POST');
+                                                echo form_open("admincontroller/desactivaPostulacion"); //form open
+                                                //echo '<form action="'.$action_form.'" method="POST">';
                                                 echo '<input type="hidden" id="id" name="id" value="' . $item->id . '">';
+                                                echo '<input type="hidden" id="career_id" name="career_id" value="' . $item->career_id . '">';
+                                                //echo '<button type="submit" name="submit" class="btn '.$icon_form.' btn-sm display-inline" data-toggle="tooltip" value="' . $item->status . '" data-placement="bottom" title="Desactivar"><i class="fa fa-eye-slash"></i></button>';
                                                 echo '<button type="submit" name="submit" class="btn btn-outline-info btn-sm display-inline" data-toggle="tooltip" data-placement="bottom" title="Desactivar"><i class="fa fa-eye-slash"></i></button>';
                                                 echo form_close();
                                             } else {
-                                                //echo '<a class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Activar" href="<?= $item->id>"><i class="fa fa fa-eye"></i></a>';
-                                                echo form_open('admincontroller/activaPostulacion');
+                                                //echo 'no funciona';
+                                                //$attributes = array('name' => 'admincontroller/activaPostulacion','id' => 'activaPostulacion', 'method' =>'POST');
+                                                echo form_open("admincontroller/activaPostulacion"); //form open
+                                                //echo '<form action="admincontroller/activaPostulacion" method="POST">';
                                                 echo '<input type="hidden" id="id" name="id" value="' . $item->id . '">';
-                                                echo '<button type="submit" name="submit" class="btn btn-outline-primary btn-sm display-inline" data-toggle="tooltip" data-placement="bottom" title="Activar"><i class="fa fa-eye-slash"></i></button>';
+                                                echo '<input type="hidden" id="career_id" name="career_id" value="' . $item->career_id . '">';
+                                                echo '<button type="submit" name="submit" class="btn btn-outline-primary btn-sm display-inline" data-toggle="tooltip" data-placement="bottom" title="Activar"><i class="fa fa-eye"></i></button>';
+                                                //echo '</form>';
                                                 echo form_close();
                                             }
                                             ?>

@@ -226,7 +226,7 @@ class AdminController extends CI_Controller
             return TRUE;
         }
     }
-    
+
 
     public function no_repetir_document($registro)
     {
@@ -382,7 +382,7 @@ class AdminController extends CI_Controller
     public function activaEstudiante()
     {
         if ($this->session->userdata('user_rol') == 'admin') {
-            $id = $this->input->post('id');
+            $id = $this->input->post('id', true);
             $model = UserEloquent::find($id);
             $model->status = 1;
             $model->save();
@@ -577,15 +577,16 @@ class AdminController extends CI_Controller
     public function desactivaPostulacion()
     {
         if ($this->session->userdata('user_rol') == 'admin') {
-            $id = $this->input->post('id');
-            $programa = '/admin/postulaciones/' . $this->input->post('career_id');
-            $model = PostulateJobEloquent::find($id);
+            $id_postulacion = $this->input->post('id', true);
+            //$programa = '/admin/postulaciones/' . $this->input->post('career_id');
+            $model = PostulateJobEloquent::findOrFail($id_postulacion);
             $model->status = 0;
             $model->save();
             //print_r($programa);
-            //redirect('/admin/postulaciones','refresh');    
-            redirect($programa . '', 'refresh');
+            redirect('/admin/postulaciones','refresh');    
+            //redirect($programa . '', 'refresh');
             //redirect(site_url(uri_string()),'refresh');
+            //redirect($_SERVER['REQUEST_URI'], 'refresh');
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-admin');
@@ -595,15 +596,16 @@ class AdminController extends CI_Controller
     public function activaPostulacion()
     {
         if ($this->session->userdata('user_rol') == 'admin') {
-            $id = $this->input->post('id');
-            $programa = '/admin/postulaciones/' . $this->input->post('career_id');
-            $model = PostulateJobEloquent::find($id);
+            $id_postulacion = $this->input->post('id', true);
+            //$programa = '/admin/postulaciones/' . $this->input->post('career_id');
+            $model = PostulateJobEloquent::find($id_postulacion);
             $model->status = 1;
             $model->save();
             //print_r($programa);
-            //redirect('/admin/postulaciones','refresh');    
-            redirect($programa . '', 'refresh');
+            redirect('/admin/postulaciones','refresh');    
+            //redirect($programa . '', 'refresh');
             //redirect(site_url(uri_string()),'refresh');
+            //redirect($_SERVER['REQUEST_URI'], 'refresh');
         } else {
             $this->session->set_flashdata('error');
             redirect('/wp-admin');

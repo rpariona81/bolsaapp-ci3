@@ -1,8 +1,7 @@
 <div class="align-items-md-stretch mt-5">
     <div class="card">
-        <div class="card-header">
-            <h4 class="card-title">Código de postulación: &nbsp;<?= str_pad($postulacion->id, 6, '0', STR_PAD_LEFT) ?></h4>
-
+    <div class="card-header bg-info">
+            <h4 class="card-title text-white">Código de postulación: &nbsp;<?= str_pad($postulacion->id, 6, '0', STR_PAD_LEFT) ?></h4>
         </div>
         <div class="card-body">
             <div class="alert alert-info">
@@ -33,7 +32,8 @@
             <?= form_open('admincontroller/resultPostulacion', array('class' => 'row g-4')) ?>
             <input type="hidden" value="<?= $postulacion->id ?>" name="id" id="id">
             <div class="col-auto">
-                <strong>Descarga CV:</strong> <a class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" title="Descargar CV" target="_blank" download="<?= $postulacion->filecv; ?>" href="<?= base_url('/uploads/filescv/' . $postulacion->filecv); ?>"><i class="fa fa-file-pdf-o" title="<?= $postulacion->filecv ?>"></i></a>
+                <strong>Descarga CV:</strong> <a class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" title="Descargar CV" target="_blank" download="<?= $postulacion->filecv; ?>" href="<?= base_url('/uploads/filescv/' . $postulacion->filecv); ?>">
+                <i class="fas fa-file-pdf" title="<?= $postulacion->filecv ?>"></i></a>
             </div>
             <div class="col-auto">
                 <select class="form-select" id="result" name="result" aria-label="Default select example" required>

@@ -2,26 +2,26 @@
 <div class="container-fluid network_wrapper col-sm p-0 ">
     <div class="card border-secondary">
         <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs" data-bs-tabs="tabs" id="convocatorias-list">
+            <ul class="nav nav-tabs card-header-tabs" data-tabs="tabs" id="convocatorias-list">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="true" data-bs-toggle="tab" href="#vigentes">Convocatorias vigentes</a>
+                    <a class="nav-link active" aria-current="true" data-toggle="tab" href="#vigentes">Convocatorias vigentes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#novigentes">Convocatorias no vigentes</a>
+                    <a class="nav-link" data-toggle="tab" href="#novigentes">Convocatorias no vigentes</a>
                 </li>
             </ul>
         </div>
         <div class="card-body tab-content">
             <div class="tab-pane active" id="vigentes">
-
+                <?php //print_r($recuento);?>
                 <?php if ($recuento['contVigentes'] == 0) {
                     echo "<h5 class='card-title text-center'>No hay convocatorias vigentes.</h5>";
                 } else {
                     if ($recuento['contVigentes'] > 0) {
                         foreach ($queryVigentes as $vigente) :
-                            if ($vigente->flag == 1) {
+                            if ($vigente->vigency == 1) {
                 ?>
-
+<div class="col-md-6 col-lg-6">
                                 <article class="mb-4" style="text-align: left; width: calc(100% / 2 - 12px); display: inline-block; margin-right: 4px;margin-left: 4px;">
                                     <section class="h-100 border border-1 border-info border-radius-pill text-bg-dark rounded-3">
                                         <div class="bg-light p-3">
@@ -46,10 +46,10 @@
                                             </p>
                                             <!--<div class="float-end">-->
                                             <!--<div class="">-->
-                                            <a class="btn input-block-level form-control btn-outline-success" href="/users/convocatoria/<?= $vigente->id; ?>"><strong>Ver convocatoria</strong></a>
+                                            <a class="bg-success btn input-block-level form-control btn-outline-success" href="/users/convocatoria/<?= $vigente->id; ?>"><strong>Ver convocatoria</strong></a>
                                             <!--</div>-->
                                     </section>
-                                </article>
+                                </article></div>
                 <?php }
                         endforeach;
                     }
@@ -58,7 +58,7 @@
             <div class="tab-pane" id="novigentes">
 
                 <?php foreach ($queryNoVigentes as $novigente) :
-                    if ($novigente->flag == 0) {
+                    if ($novigente->vigency == 0) {
                 ?>
                         <article class="mb-4" style="text-align: left; width: calc(100% / 2 - 12px); display: inline-block; margin-right: 4px;margin-left: 4px;">
                             <section class="h-100 border border-danger border-1 border-radius-pill text-bg-dark rounded-3">
@@ -84,7 +84,7 @@
                                     </p>
                                     <!--<div class="float-end">-->
                                     <div class="text-center">
-                                        <a class="btn input-block-level form-control btn-outline-danger" href="/users/convocatoria/<?= $novigente->id; ?>"><strong>Ver convocatoria</strong></a>
+                                        <a class="bg-danger btn input-block-level form-control btn-outline-danger" href="/users/convocatoria/<?= $novigente->id; ?>"><strong>Ver convocatoria</strong></a>
                                     </div>
                             </section>
                         </article>

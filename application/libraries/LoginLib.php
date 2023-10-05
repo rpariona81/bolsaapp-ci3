@@ -72,6 +72,7 @@ class LoginLib
                         'user_rol' => $rol['rolename'],
                         'user_rol_title' => $rol['slug'],
                         'user_rol_id' => $rol['id'],
+                        'user_email' => $user['email'],
                     );
                     $this->ci->session->set_userdata( $arrayUser );
                     $this->isLogged = TRUE;
