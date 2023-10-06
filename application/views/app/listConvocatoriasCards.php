@@ -14,6 +14,11 @@
         <div class="card-body tab-content">
             <div class="tab-pane active" id="vigentes">
                 <div class="row">
+                    <?php if ($recuento['contVigentes'] == 0) : ?>
+                        <h6 class="ml-5">
+                            <font color="red"><em>No hay convocatorias vigentes.</em></font>
+                        </h6>
+                    <?php endif ?>
                     <?php foreach ($queryVigentes as $item) : ?>
                         <div class="col-md-6 col-lg-6 mb-4">
                             <div class="card border border-1 p-1" style="min-height:340px; max-height:340px;">
@@ -48,7 +53,7 @@
                                             <span>&nbsp;<?= $item->vacancy_numbers ?>&nbsp;vacantes - &nbsp;<?= $item->type_offer ?></span>
                                         </li>
                                     </ul>
-                                    <a type="button" class="align-self-end btn btn-lg btn-block btn-primary" style="margin-top: auto;"  href="/users/convocatoria/<?= $item->id; ?>"><strong>Ver convocatoria</strong></a>
+                                    <a type="button" class="align-self-end btn btn-lg btn-block btn-primary" style="margin-top: auto;" href="/users/convocatoria/<?= $item->id; ?>"><strong>Ver convocatoria</strong></a>
                                 </div>
                             </div>
                         </div>
@@ -57,11 +62,16 @@
             </div>
             <div class="tab-pane" id="novigentes">
                 <div class="row">
+                    <?php if ($recuento['contNoVigentes'] == 0) : ?>
+                        <h6 class="ml-5">
+                            <font color="red"><em>No hay convocatorias no vigentes.</em></font>
+                        </h6>
+                    <?php endif ?>
                     <?php foreach ($queryNoVigentes as $item) : ?>
                         <div class="col-md-6 col-lg-6 mb-4">
                             <div class="card border border-1 p-1" style="min-height:340px; max-height:340px;">
                                 <div class="card-header">
-                                <h5><?= $item->title ?></h5>
+                                    <h5><?= $item->title ?></h5>
                                     <h6>
                                         <font color="red"><em><?= $item->employer ?></em></font>
                                     </h6>
@@ -91,7 +101,7 @@
                                             <span>&nbsp;<?= $item->vacancy_numbers ?>&nbsp;vacantes - &nbsp;<?= $item->type_offer ?></span>
                                         </li>
                                     </ul>
-                                    <a type="button" class="align-self-end btn btn-lg btn-block btn-danger" style="margin-top: auto;"  href="/users/convocatoria/<?= $item->id; ?>"><strong>Ver convocatoria</strong></a>
+                                    <a type="button" class="align-self-end btn btn-lg btn-block btn-danger" style="margin-top: auto;" href="/users/convocatoria/<?= $item->id; ?>"><strong>Ver convocatoria</strong></a>
                                 </div>
                             </div>
                         </div>

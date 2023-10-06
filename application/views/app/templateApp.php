@@ -8,7 +8,7 @@
     <meta content="" name="description">
     <title><?= getenv('APP_NAME') ?></title>
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('public/app/img/favicon.png') ?>">
     <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -80,7 +80,7 @@
                 <!--<h1><a href="#body" class="scrollto"><span>e</span>Startup</a></h1>-->
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
-                <a href="/users"><img src="<?= base_url('public/admin/assets/images/logo-mini.png') ?>" alt="homepage" width="70" height="82" class="light-logo" /></a>
+                <a href="/users"><img src="<?= base_url('public/app/img/logo-mini.png') ?>" alt="homepage" width="70" height="82" class="light-logo" /></a>
                 <strong><?= getenv('APP_NAME') ?></strong>
             </div>
 

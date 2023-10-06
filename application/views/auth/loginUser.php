@@ -19,7 +19,7 @@
     <title>Material Pro Template by WrapPixel</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro/">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('public/assets/images/favicon.png') ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('public/app/img/favicon.png') ?>">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i')?>" rel="stylesheet">
@@ -42,7 +42,7 @@
     <!--<link href="<?= base_url('public/app/css/style.css') ?>" rel="stylesheet">-->
     <link href="<?= base_url('public/app/css/golden.css') ?>" rel="stylesheet">
 
-    <link href="<?= base_url('public/lite/css/signin.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('public/app/css/signin.css') ?>" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -53,9 +53,9 @@
 </head>
 
 <body class="text-center">
-    <div class="container col-lg-4">
+    <div class="container col-md-4 col-lg-4">
         <div>
-            <img class="mb-4" src="<?= base_url('public/assets/images/logo-mini.png') ?>" width="200" height="230" id="logo">
+            <img class="mb-4" src="<?= base_url('public/app/img/logo-mini.png') ?>" width="200" height="230" id="logo">
         </div>
         <div class="card">
 

@@ -12,7 +12,7 @@
     <title><?= getenv('APP_NAME') ?></title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('public/admin/assets/images/favicon.png') ?>" />
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('public/app/img/favicon.png') ?>">
     <!-- Custom CSS -->
     <link href="<?= base_url('public/admin/dist/css/golden.css') ?>" rel="stylesheet" />
     <!--<link href="<?= base_url('public/admin/dist/css/style.min.css') ?>" rel="stylesheet" />-->

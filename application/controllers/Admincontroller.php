@@ -561,9 +561,13 @@ class AdminController extends CI_Controller
      * CONTROL DE POSTULACIONES
      *  */
 
-    public function verPostulaciones($career_id = NULL)
+    //public function verPostulaciones($career_id = NULL)
+    public function verPostulaciones()
     {
         if ($this->session->userdata('user_rol') == 'admin') {
+            $career_id = $this->input->post('career_id',true);
+            $data['selectValue'] = isset($career_id) ? $career_id : null;
+            //($career_id != NULL) ? ($data['selectValue'] = $career_id) : NULL;
             $data['query'] = PostulateJobEloquent::getReportPostulations($career_id);
             //echo json_encode($data['query']);
             $data['contenido'] = 'admin/postulacionTable';

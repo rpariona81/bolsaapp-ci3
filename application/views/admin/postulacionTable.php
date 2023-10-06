@@ -6,7 +6,9 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header bg-success bg-opacity">
-                <?= form_open('admincontroller/creaConvocatoria', array('id' => 'FRM_DATOS', 'class' => 'needs-validation', 'onsubmit' => 'grabar.disabled = true; return true;')); ?>
+                <!--https://stackoverflow.com/questions/18842946/refresh-form-page-after-submitting-the-form-->
+                <?= form_open('', array('id' => 'FRM_DATOS', 'class' => 'needs-validation', 'onsubmit' => 'window.location.reload()')); ?>
+                <!--< ?= form_open('', array('id' => 'FRM_DATOS', 'class' => 'needs-validation')); ?>-->
                 <div class="row pt-3">
                     <div class="col-md-5 col-8 align-self-center">
                         <div class="mb-3">
@@ -16,16 +18,23 @@
                     <div class="col-md-7 col-4 mx-auto">
                         <div class="mb-3">
                             <div class="input-group mb-3">
-                                <select class="form-control" id="career_id" name="career_id" aria-label="Default select example" required>
-                                    <option value="" selected>Todos los programas</option>
-                                    <option value="1">Arquitectura de Plataformas y Servicios de Tecnologías de la Información</option>
+                                <select class="form-control" id="career_id" name="career_id" va aria-label="Default select example">
+                                    <option value="">Todos los programas</option>
+                                    <!--<option value="1">Arquitectura de Plataformas y Servicios de Tecnologías de la Información</option>
                                     <option value="2">Enfermería Técnica</option>
                                     <option value="3">Farmacia Técnica</option>
                                     <option value="4">Tecnología Pesquera y Acuícola</option>
-                                    <option value="5">Desarrollo pesquero y acuícola</option>
+                                    <option value="5">Desarrollo pesquero y acuícola</option>-->
+                                    <option value="1" <?= $selectValue == 1 ? ' selected="selected"' : ''; ?>>Arquitectura de Plataformas y Servicios de Tecnologías de la Información</option>
+                                    <option value="2" <?= $selectValue == 2 ? ' selected="selected"' : ''; ?>>Enfermería Técnica</option>
+                                    <option value="3" <?= $selectValue == 3 ? ' selected="selected"' : ''; ?>>Farmacia Técnica</option>
+                                    <option value="4" <?= $selectValue == 4 ? ' selected="selected"' : ''; ?>>Tecnología Pesquera y Acuícola</option>
+                                    <option value="5" <?= $selectValue == 5 ? ' selected="selected"' : ''; ?>>Desarrollo pesquero y acuícola</option>
                                 </select>
                                 <button class="btn btn-warning pull-right font-weight-medium px-4" type="submit">
-                                    <i class="ti-search"></i>
+                                    <!--<i class="ti-search"></i>-->
+                                    <i class="fa fa-search-plus"></i>
+                                    <!--<i class="fa fa-filter"></i>-->
                                 </button>
                             </div>
                         </div>
@@ -115,3 +124,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    /*$(function() {
+        $('#FRM_DATOS').on('submit', function(e) {
+            e.preventDefault();
+            setTimeout(function() {
+                window.location.reload();
+            }, 0);
+            $()
+            this.submit();
+        });
+    });*/
+</script>
