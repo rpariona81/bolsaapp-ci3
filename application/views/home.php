@@ -56,7 +56,7 @@
 
                 <h2>Bolsa laboral institucional</h2>
                 <h4>¡Bienvenidos al sitio de empleabilidad para Alumnos y Egresados!</h4>
-
+                <h6>Haz clic sobre la imagen para acceder al sistema según tu tipo de usuario.</h6>
             </div>
         </div>
 
@@ -70,6 +70,7 @@
                             <a class="btn btn-large btn-primary px-5" href="/wp-login"><strong>Estudiantes y egresados</strong></a>
                         </div>
                     </div>
+                    <h4><i class="fa fa-mouse-pointer" aria-hidden="true"></i>&nbsp;&nbsp; Acceso para estudiantes y egresados</h4>
                 </div>
 
                 <div class="col-md-6 col-md-4 col-lg-4">
@@ -79,6 +80,7 @@
                             <a class="btn btn-large btn-info px-5" href="/wp-login"><strong>Docentes</strong></a>
                         </div>
                     </div>
+                    <h4><i class="fa fa-mouse-pointer" aria-hidden="true"></i>&nbsp;&nbsp; Acceso para docentes</h4>
                 </div>
 
                 <div class="col-md-6 col-md-4 col-lg-4">
@@ -88,6 +90,7 @@
                             <a class="btn btn-large btn-danger px-5" href="/wp-admin"><strong>Administrador</strong></a>
                         </div>
                     </div>
+                    <h4><i class="fa fa-mouse-pointer" aria-hidden="true"></i>&nbsp;&nbsp; Acceso al Administrador</h4>
                 </div>
 
             </div>
