@@ -16,32 +16,16 @@
     <meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, material pro admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, material design, material dashboard bootstrap 5 dashboard template">
     <meta name="description" content="Material Pro is powerful and clean admin dashboard template">
     <meta name="robots" content="noindex,nofollow">
-    <title>Material Pro Template by WrapPixel</title>
+    <title><?= getenv('APP_NAME') ?></title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro/">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('public/assets/images/favicon.png') ?>">
+    <!-- Custom CSS -->
+    <link href="<?= base_url('public/assets/plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i')?>" rel="stylesheet">
-
-    <!-- Bootstrap css -->
-    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
-    <link href="<?= base_url('public/app/lib/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
-
-    <!-- Libraries CSS Files -->
-    <link href="<?= base_url('public/app/lib/owlcarousel/assets/owl.carousel.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/app/lib/owlcarousel/assets/owl.theme.default.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/app/lib/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/app/lib/animate/animate.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/app/lib/modal-video/css/modal-video.min.css') ?>" rel="stylesheet">
-
-    <link href="<?= base_url('public/app/lib/datatable/css/buttons.bootstrap4.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/app/lib/datatable/css/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/app/font-awesome/4.7.0/css/font-awesome.min.css') ?>" rel="stylesheet">
-    <!-- Main Stylesheet File -->
-    <!--<link href="<?= base_url('public/app/css/style.css') ?>" rel="stylesheet">-->
-    <link href="<?= base_url('public/app/css/golden.css') ?>" rel="stylesheet">
-
+    <link href="<?= base_url('public/lite/css/spinners.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('public/lite/css/style.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('public/lite/css/colors/golden.css') ?>" rel="stylesheet">
     <link href="<?= base_url('public/lite/css/signin.css') ?>" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,8 +43,9 @@
         </div>
         <div class="card">
 
-            <div class="card-header" style="background-color: darkgoldenrod;">
-                <p class="font-weight-light text-white my-1">INICIAR SESIÓN</p>
+            <div class="card-header text-white bg-secondary">
+                <!--<h3 class="card-title">Bienvenido(a)</h3>-->
+                <p class="font-weight-light my-1">INICIAR SESIÓN</p>
             </div>
             <div class="card-body">
                 <?php if ($this->session->flashdata('flashSuccess')) : ?>
@@ -87,7 +72,7 @@
 
                     <?php endif ?>
 
-                    <?= form_open('authcontroller/loginUser', ['class' => 'form-signin']) ?>
+                    <?= form_open('authcontroller/loginAdmin',  ['class' => 'form-signin']) ?>
                     <div class="form-row">
                         <label for="inputEmail" class="sr-only">Usuario</label>
                         <input class="form-control" id="username" name="username" type="text" placeholder="Usuario" value="<?= set_value('username') ?>" size="50" required />
@@ -101,29 +86,30 @@
                             <a class="btn btn-warning px-3 btn-block" href="/">Regresar</a>&nbsp;&nbsp;
                         </div>
                         <div class="col-6 pull-right">
-                            <input class="btn bg-primary text-white px-3 btn-block" id="btnLogin" type="submit" value="Ingresar"></input>
+                            <input class="btn bg-secondary text-white px-3 btn-block" id="btnLogin" type="submit" value="Ingresar"></input>
                         </div>
                     </div>
                     <?= form_close() ?>
                     </div>
+                    <!-- -------------------------------------------------------------- -->
+                    <!-- Login box.scss -->
+                    <!-- -------------------------------------------------------------- -->
             </div>
-            <!-- -------------------------------------------------------------- -->
-            <!-- Login box.scss -->
-            <!-- -------------------------------------------------------------- -->
-        </div>
 
-        <!-- -------------------------------------------------------------- -->
+            <!-- -------------------------------------------------------------- -->
             <!-- All Required js -->
             <!-- -------------------------------------------------------------- -->
-            <!-- JavaScript Libraries -->
-            <script src="<?= base_url('public/app/lib/jquery/jquery.min.js') ?>"></script>
-            <script src="<?= base_url('public/app/lib/jquery/jquery-migrate.min.js') ?>"></script>
-            <script src="<?= base_url('public/app/lib/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+            <script src="<?= base_url('public/assets/plugins/jquery/jquery.min.js') ?>"></script>
+            <!-- Bootstrap tether Core JavaScript -->
+            <script src="<?= base_url('public/assets/plugins/bootstrap/js/bootstrap.min.js') ?>"></script>
             <!-- -------------------------------------------------------------- -->
             <!-- This page plugin js -->
             <!-- -------------------------------------------------------------- -->
-            <!-- Template Main Javascript File -->
-            <script src="<?= base_url('public/app/js/main.js') ?>"></script>
+            <script src="<?= base_url('public/lite/js/jquery.slimscroll.js') ?>"></script>
+            <script src="<?= base_url('public/lite/js/waves.js') ?>"></script>
+            <script src="<?= base_url('public/lite/js/custom.min.js') ?>"></script>
+
+
 
 </body>
 

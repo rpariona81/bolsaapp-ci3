@@ -3,11 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>eStartup Bootstrap Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
+    <title><?= getenv('APP_NAME') ?></title>
     <!-- Favicons -->
     <link href="img/favicon.png" rel="icon">
     <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -30,9 +29,9 @@
     <link href="<?= base_url('public/app/lib/datatable/css/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('public/app/font-awesome/4.7.0/css/font-awesome.min.css') ?>" rel="stylesheet">
     <!-- Main Stylesheet File -->
-    <link href="<?= base_url('public/app/css/style.css') ?>" rel="stylesheet">
+    <!--<link href="<?= base_url('public/app/css/style.css') ?>" rel="stylesheet">-->
+    <link href="<?= base_url('public/app/css/golden.css') ?>" rel="stylesheet">
 
-    
     <!-- JavaScript Libraries -->
     <script src="<?= base_url('public/app/lib/jquery/jquery.min.js') ?>"></script>
     <script src="<?= base_url('public/app/lib/jquery/jquery-migrate.min.js') ?>"></script>
@@ -51,7 +50,7 @@
     <!-- Template Main Javascript File -->
     <script src="<?= base_url('public/app/js/main.js') ?>"></script>
 
-    
+
 
     <script src="<?= base_url('public/app/lib/datatable/js/jquery.datatables.min.js') ?>"></script>
     <script src="<?= base_url('public/app/lib/datatable/js/datatables.bootstrap4.min.js') ?>"></script>
@@ -74,7 +73,7 @@
 
 <body>
 
-    <header id="header" class="header" style="height: 100px;">
+    <header id="header" class="header" style="height: 100px; background-color: #d1a52d;">
         <div class="container">
 
             <div id="logo" class="pull-left mt-0">
@@ -82,6 +81,7 @@
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
                 <a href="/users"><img src="<?= base_url('public/admin/assets/images/logo-mini.png') ?>" alt="homepage" width="70" height="82" class="light-logo" /></a>
+                <strong><?= getenv('APP_NAME') ?></strong>
             </div>
 
             <nav id="nav-menu-container" style="margin-top: 1.1rem; font-size: 2em;">
@@ -111,9 +111,11 @@
                     } else {
                     }
                     ?>
-                    <li class="menu-has-children"><a href="">
-                    <strong><?= $this->session->userdata('user_rol_title').' '.$this->session->userdata('user_name').' '.$this->session->userdata('user_paterno') ?></strong><i class="fa fa-user fa-fw"></i>
-                    </a>
+                    <li class="menu-has-children dropdown-menu-end">
+                        <a href="#">
+                            <i class="fa fa-user fa-fw"></i>
+                            <strong><?= $this->session->userdata('user_condicion') . ' ' . $this->session->userdata('user_name') . ' ' . $this->session->userdata('user_paterno') ?></strong>
+                        </a>
                         <ul>
                             <li><a href="/users/credenciales"><i class="fa fa-key" aria-hidden="true"></i>&nbsp;Cambiar clave</a></li>
                             <li><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Cerrar sesión</a></li>
@@ -141,102 +143,13 @@
     <!--==========================
     Footer
   ============================-->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-12 col-lg-4">
-                    <div class="footer-logo">
-
-                        <a class="navbar-brand" href="#">eStartup</a>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the.</p>
-
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-3 col-lg-2">
-                    <div class="list-menu">
-
-                        <h4>Abou Us</h4>
-
-                        <ul class="list-unstyled">
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Features item</a></li>
-                            <li><a href="#">Live streaming</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-3 col-lg-2">
-                    <div class="list-menu">
-
-                        <h4>Abou Us</h4>
-
-                        <ul class="list-unstyled">
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Features item</a></li>
-                            <li><a href="#">Live streaming</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-3 col-lg-2">
-                    <div class="list-menu">
-
-                        <h4>Support</h4>
-
-                        <ul class="list-unstyled">
-                            <li><a href="#">faq</a></li>
-                            <li><a href="#">Editor help</a></li>
-                            <li><a href="#">Contact us</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-3 col-lg-2">
-                    <div class="list-menu">
-
-                        <h4>Abou Us</h4>
-
-                        <ul class="list-unstyled">
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Features item</a></li>
-                            <li><a href="#">Live streaming</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-
-                    </div>
-                </div>
-
-            </div>
+    <!--<footer class="footer align-bottom">-->
+    <div class="footer fixed-bottom">
+        <div class="container p-2 mt-0">
+            <p class="text-white">&copy; Copyrights <?= getenv('APP_NAME') ?>. All rights reserved.</p>
         </div>
 
-        <div class="copyrights">
-            <div class="container">
-                <p>&copy; Copyrights eStartup. All rights reserved.</p>
-                <div class="credits">
-                    <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eStartup
-          -->
-                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                </div>
-            </div>
-        </div>
-
-    </footer>
-
-
-
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    </div>
 
 
 

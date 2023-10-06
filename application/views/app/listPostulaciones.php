@@ -17,7 +17,7 @@
     <div class="card-body">
         <div class="table-responsive">
             <!--<table id="expendable-data-table" class="table display nowrap table-bordered table-hover" style="width:100%">-->
-            <table id="datatablesSimple" class="table display nowrap table-bordered table-hover">
+            <table id="datatablesSimple" class="table display nowrap table-bordered table-hover" style="width:100%">
                 <thead>
                     <tr class="bg-warning">
                         <th>Convocatoria</th>

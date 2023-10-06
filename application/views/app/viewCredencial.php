@@ -28,7 +28,7 @@
                     <input type="password" id="clave_rep" class="form-control" name="clave_rep" placeholder="Repita nueva contraseña" required>
                 </div>
                 <div class="mb-3 d-grid">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary btn-block">
                         Cambiar clave
                     </button>
                 </div>

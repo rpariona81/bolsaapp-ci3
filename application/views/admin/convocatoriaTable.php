@@ -61,7 +61,7 @@
                                 <!--<td>< ?= $item->expired ?></td>-->
                                 <?php
                                 if ($item->vigency == 0) {
-                                    echo '<td><span class="badge bg-secondary">'.$item->expired.'</span></td>';
+                                    echo '<td><span class="badge bg-secondary text-white">'.$item->expired.'</span></td>';
                                 } else {
                                     echo '<td><span class="badge bg-success">'.$item->expired.'</span></td>';
                                 } ?>

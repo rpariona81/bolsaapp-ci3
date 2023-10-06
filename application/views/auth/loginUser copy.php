@@ -19,29 +19,13 @@
     <title>Material Pro Template by WrapPixel</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro/">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('public/assets/images/favicon.png') ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    <!-- Custom CSS -->
+    <link href="<?= base_url('public/assets/plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i')?>" rel="stylesheet">
-
-    <!-- Bootstrap css -->
-    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
-    <link href="<?= base_url('public/app/lib/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
-
-    <!-- Libraries CSS Files -->
-    <link href="<?= base_url('public/app/lib/owlcarousel/assets/owl.carousel.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/app/lib/owlcarousel/assets/owl.theme.default.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/app/lib/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/app/lib/animate/animate.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/app/lib/modal-video/css/modal-video.min.css') ?>" rel="stylesheet">
-
-    <link href="<?= base_url('public/app/lib/datatable/css/buttons.bootstrap4.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/app/lib/datatable/css/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/app/font-awesome/4.7.0/css/font-awesome.min.css') ?>" rel="stylesheet">
-    <!-- Main Stylesheet File -->
-    <!--<link href="<?= base_url('public/app/css/style.css') ?>" rel="stylesheet">-->
-    <link href="<?= base_url('public/app/css/golden.css') ?>" rel="stylesheet">
-
+    <link href="<?= base_url('public/lite/css/spinners.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('public/lite/css/style.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('public/lite/css/colors/golden.css') ?>" rel="stylesheet">
     <link href="<?= base_url('public/lite/css/signin.css') ?>" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,8 +43,8 @@
         </div>
         <div class="card">
 
-            <div class="card-header" style="background-color: darkgoldenrod;">
-                <p class="font-weight-light text-white my-1">INICIAR SESIÓN</p>
+            <div class="card-header text-white" style="background-color: darkgoldenrod;">
+                <p class="font-weight-light my-1">INICIAR SESIÓN</p>
             </div>
             <div class="card-body">
                 <?php if ($this->session->flashdata('flashSuccess')) : ?>
@@ -113,17 +97,19 @@
         </div>
 
         <!-- -------------------------------------------------------------- -->
-            <!-- All Required js -->
-            <!-- -------------------------------------------------------------- -->
-            <!-- JavaScript Libraries -->
-            <script src="<?= base_url('public/app/lib/jquery/jquery.min.js') ?>"></script>
-            <script src="<?= base_url('public/app/lib/jquery/jquery-migrate.min.js') ?>"></script>
-            <script src="<?= base_url('public/app/lib/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
-            <!-- -------------------------------------------------------------- -->
-            <!-- This page plugin js -->
-            <!-- -------------------------------------------------------------- -->
-            <!-- Template Main Javascript File -->
-            <script src="<?= base_url('public/app/js/main.js') ?>"></script>
+        <!-- All Required js -->
+        <!-- -------------------------------------------------------------- -->
+        <script src="<?= base_url('public/assets/plugins/jquery/jquery.min.js') ?>"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="<?= base_url('public/assets/plugins/bootstrap/js/bootstrap.min.js') ?>"></script>
+        <!-- -------------------------------------------------------------- -->
+        <!-- This page plugin js -->
+        <!-- -------------------------------------------------------------- -->
+        <script src="<?= base_url('public/lite/js/jquery.slimscroll.js') ?>"></script>
+        <script src="<?= base_url('public/lite/js/waves.js') ?>"></script>
+        <script src="<?= base_url('public/lite/js/custom.min.js') ?>"></script>
+
+
 
 </body>
 

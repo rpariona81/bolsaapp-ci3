@@ -1,101 +1,104 @@
 <!--https://www.codeply.com/p/t6GGNuV2yb-->
-<div class="container-fluid network_wrapper col-sm p-0 ">
+<div class="container-fluid network_wrapper col-sm p-0 mt-4 mb-3">
     <div class="card border-secondary">
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs" data-tabs="tabs" id="convocatorias-list">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="true" data-toggle="tab" href="#vigentes">Convocatorias vigentes</a>
+                    <a class="nav-link active" aria-current="true" data-toggle="tab" href="#vigentes"><strong>Convocatorias vigentes</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#novigentes">Convocatorias no vigentes</a>
+                    <a class="nav-link" data-toggle="tab" href="#novigentes"><strong>Convocatorias no vigentes</strong></a>
                 </li>
             </ul>
         </div>
         <div class="card-body tab-content">
             <div class="tab-pane active" id="vigentes">
-                <?php //print_r($recuento);?>
-                <?php if ($recuento['contVigentes'] == 0) {
-                    echo "<h5 class='card-title text-center'>No hay convocatorias vigentes.</h5>";
-                } else {
-                    if ($recuento['contVigentes'] > 0) {
-                        foreach ($queryVigentes as $vigente) :
-                            if ($vigente->vigency == 1) {
-                ?>
-<div class="col-md-6 col-lg-6">
-                                <article class="mb-4" style="text-align: left; width: calc(100% / 2 - 12px); display: inline-block; margin-right: 4px;margin-left: 4px;">
-                                    <section class="h-100 border border-1 border-info border-radius-pill text-bg-dark rounded-3">
-                                        <div class="bg-light p-3">
-                                            <h4><?= substr(html_entity_decode($vigente->title), 0, 33) . '...' ?></h4>
-                                            <h5>
-                                                <font color="red"><em><?= substr(html_entity_decode($vigente->employer), 0, 33) . '...'  ?></em></font>
-                                            </h5>
-                                        </div>
-                                        <div class="p-3">
-                                            <ul style="list-style: none; padding: 0; margin: 0;">
-                                                <li>
-                                                    <i class="fa fa-calendar" style="height: 20px; width: 20px; text-align: center;"></i><span>&nbsp;Finaliza el <?= date("d/m/Y", strtotime($vigente->date_vigency)); ?></span>
-                                                </li>
-                                                <li>
-                                                    <i class="fa fa-map-marker" style="height: 20px; width: 20px; text-align: center;"></i><span>&nbsp;<?= $vigente->ubicacion ?></span>
-                                                </li>
-                                            </ul>
-                                            <!--<br>-->
-                                            <p class="card-text"><?= substr(html_entity_decode($vigente->detail), 0, 100) . '...' ?></p>
-                                            <p> <small class="text-muted">Sueldo:&nbsp;S/&nbsp;<?= $vigente->salary ?></small><br>
-                                                <small><?= $vigente->career_title ?></small>
-                                            </p>
-                                            <!--<div class="float-end">-->
-                                            <!--<div class="">-->
-                                            <a class="bg-success btn input-block-level form-control btn-outline-success" href="/users/convocatoria/<?= $vigente->id; ?>"><strong>Ver convocatoria</strong></a>
-                                            <!--</div>-->
-                                    </section>
-                                </article></div>
-                <?php }
-                        endforeach;
-                    }
-                } ?>
-            </div>
-            <div class="tab-pane" id="novigentes">
-
-                <?php foreach ($queryNoVigentes as $novigente) :
-                    if ($novigente->vigency == 0) {
-                ?>
-                        <article class="mb-4" style="text-align: left; width: calc(100% / 2 - 12px); display: inline-block; margin-right: 4px;margin-left: 4px;">
-                            <section class="h-100 border border-danger border-1 border-radius-pill text-bg-dark rounded-3">
-                                <div class="bg-light p-3">
-                                    <h5><?= substr(html_entity_decode($novigente->title), 0, 33) . '...' ?></h5>
+                <div class="row">
+                    <?php foreach ($queryVigentes as $item) : ?>
+                        <div class="col-md-6 col-lg-6 mb-4">
+                            <div class="card border border-1 p-1" style="min-height:340px; max-height:340px;">
+                                <div class="card-header">
+                                    <h5><?= $item->title ?></h5>
                                     <h6>
-                                        <font color="black"><em><?= substr(html_entity_decode($novigente->employer), 0, 33) . '...'  ?></em></font>
+                                        <font color="red"><em><?= $item->employer ?></em></font>
                                     </h6>
                                 </div>
-                                <div class="p-3">
-                                    <ul style="list-style: none; padding: 0; margin: 0;">
+                                <div class="card-body d-flex flex-column">
+                                    <!--<ul style="list-style: none; padding: 0; margin: 0;">-->
+                                    <ul class="list-unstyled mt-0 mb-4">
                                         <li>
-                                            <i class="fa fa-calendar" style="height: 20px; width: 20px; text-align: center;"></i><span>&nbsp;Finaliza el <?= date("d/m/Y", strtotime($novigente->date_vigency)); ?></span>
+                                            <i class="fa fa-calendar" style="height: 20px; width: 20px; text-align: center;"></i>
+                                            <span>&nbsp;Finaliza el <?= date("d/m/Y", strtotime($item->date_vigency)); ?></span>&nbsp;
+                                            <span class="badge bg-secondary text-white"><?= $item->expired ?></span>
                                         </li>
                                         <li>
-                                            <i class="fa fa-map-marker" style="height: 20px; width: 20px; text-align: center;"></i><span>&nbsp;<?= $novigente->ubicacion ?></span>
+                                            <i class="fa fa-map-marker" style="height: 20px; width: 20px; text-align: center;"></i>
+                                            <span>&nbsp;<?= $item->ubicacion ?></span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa fa-money" style="height: 20px; width: 20px; text-align: center;"></i>
+                                            <span>&nbsp;S/&nbsp;<?= $item->salary ?></span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-graduation-cap" style="height: 20px; width: 20px; text-align: center;"></i>
+                                            <span>&nbsp;<?= $item->career_title . ' [Cód. ' . str_pad($item->id, 6, '0', STR_PAD_LEFT) . ']'; ?></span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-users" style="height: 20px; width: 20px; text-align: center;"></i>
+                                            <span>&nbsp;<?= $item->vacancy_numbers ?>&nbsp;vacantes - &nbsp;<?= $item->type_offer ?></span>
                                         </li>
                                     </ul>
-                                    <!--<br>-->
-                                    <p class="card-text"><?= substr(html_entity_decode($novigente->detail), 0, 100) . '...' ?></p>
-                                    <p> <small class="text-muted">Sueldo:&nbsp;S/&nbsp;<?= $novigente->salary ?></small><br>
-                                        <small><?= $novigente->career_title ?></small>
-                                    </p>
-                                    <!--<div class="float-end">-->
-                                    <div class="text-center">
-                                        <a class="bg-danger btn input-block-level form-control btn-outline-danger" href="/users/convocatoria/<?= $novigente->id; ?>"><strong>Ver convocatoria</strong></a>
-                                    </div>
-                            </section>
-                        </article>
-                <?php }
-                endforeach; ?>
+                                    <a type="button" class="align-self-end btn btn-lg btn-block btn-primary" style="margin-top: auto;"  href="/users/convocatoria/<?= $item->id; ?>"><strong>Ver convocatoria</strong></a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
-
-        </div>
-    </div>
-</div>
-<!--<script>
+            <div class="tab-pane" id="novigentes">
+                <div class="row">
+                    <?php foreach ($queryNoVigentes as $item) : ?>
+                        <div class="col-md-6 col-lg-6 mb-4">
+                            <div class="card border border-1 p-1" style="min-height:340px; max-height:340px;">
+                                <div class="card-header">
+                                <h5><?= $item->title ?></h5>
+                                    <h6>
+                                        <font color="red"><em><?= $item->employer ?></em></font>
+                                    </h6>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <!--<ul style="list-style: none; padding: 0; margin: 0;">-->
+                                    <ul class="list-unstyled mt-0 mb-4">
+                                        <li>
+                                            <i class="fa fa-calendar" style="height: 20px; width: 20px; text-align: center;"></i>
+                                            <span>&nbsp;Finaliza el <?= date("d/m/Y", strtotime($item->date_vigency)); ?></span>&nbsp;
+                                            <span class="badge bg-danger text-white"><?= $item->expired ?></span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-map-marker" style="height: 20px; width: 20px; text-align: center;"></i>
+                                            <span>&nbsp;<?= $item->ubicacion ?></span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa fa-money" style="height: 20px; width: 20px; text-align: center;"></i>
+                                            <span>&nbsp;S/&nbsp;<?= $item->salary ?></span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-graduation-cap" style="height: 20px; width: 20px; text-align: center;"></i>
+                                            <span>&nbsp;<?= $item->career_title . ' [Cód. ' . str_pad($item->id, 6, '0', STR_PAD_LEFT) . ']'; ?></span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-users" style="height: 20px; width: 20px; text-align: center;"></i>
+                                            <span>&nbsp;<?= $item->vacancy_numbers ?>&nbsp;vacantes - &nbsp;<?= $item->type_offer ?></span>
+                                        </li>
+                                    </ul>
+                                    <a type="button" class="align-self-end btn btn-lg btn-block btn-danger" style="margin-top: auto;"  href="/users/convocatoria/<?= $item->id; ?>"><strong>Ver convocatoria</strong></a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <!--<script>
     $(function() {
             $("#convocatorias-list").tabs();
             $("#convocatorias-list").tabs("load", '#vigentes');

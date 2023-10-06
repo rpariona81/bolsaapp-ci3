@@ -152,12 +152,14 @@ class OfferJobEloquent extends BaseModel
 
     public static function getOffersjobsVigentes($user_carrera_id)
     {
-        return OfferJobEloquent::where('t_offersjob.career_id','=', $user_carrera_id)->where('t_offersjob.status','=',1)->whereDate('t_offersjob.date_vigency','>=',Carbon::now())->get();
+        //return OfferJobEloquent::where('t_offersjob.career_id','=', $user_carrera_id)->where('t_offersjob.status','=',1)->whereDate('t_offersjob.date_vigency','>=',Carbon::now())->get();
+        return OfferJobEloquent::leftjoin('t_careers', 't_careers.id', '=', 't_offersjob.career_id')->where('t_offersjob.career_id','=', $user_carrera_id)->where('t_offersjob.status','=',1)->whereDate('t_offersjob.date_vigency','>=',Carbon::now())->get(['t_offersjob.*', 't_careers.career_title']);
     }
 
     public static function getOffersjobsNoVigentes($user_carrera_id)
     {
-        return OfferJobEloquent::where('t_offersjob.career_id','=', $user_carrera_id)->where('t_offersjob.status','=', 1)->whereDate('t_offersjob.date_vigency','<',Carbon::now())->get();
+        //return OfferJobEloquent::where('t_offersjob.career_id','=', $user_carrera_id)->where('t_offersjob.status','=', 1)->whereDate('t_offersjob.date_vigency','<',Carbon::now())->get();
+        return OfferJobEloquent::leftjoin('t_careers', 't_careers.id', '=', 't_offersjob.career_id')->where('t_offersjob.career_id','=', $user_carrera_id)->where('t_offersjob.status','=', 1)->whereDate('t_offersjob.date_vigency','<',Carbon::now())->get(['t_offersjob.*', 't_careers.career_title']);
     }
 
     public static function getOffersjobsByPerfil($user_carrera_id)
