@@ -193,11 +193,11 @@
             <!-- Bottom points-->
             <div class="sidebar-footer">
                 <!-- item-->
-                <a href="" class="link" data-bs-toggle="tooltip" data-bs-placement="top" title="Configuraciones"><i class="ti-settings"></i></a>
+                <a href="#" class="link" data-bs-toggle="tooltip" data-bs-placement="top" title="Configuraciones"><i class="ti-settings"></i></a>
                 <!-- item-->
-                <a href="" class="link" data-bs-toggle="tooltip" data-bs-placement="top" title="Email"><i class="mdi mdi-gmail"></i></a>
+                <a href="#" class="link" data-bs-toggle="tooltip" data-bs-placement="top" title="Email"><i class="mdi mdi-gmail"></i></a>
                 <!-- item-->
-                <a href="" class="link" data-bs-toggle="tooltip" data-bs-placement="top" title="Cerrar sesión"><i class="mdi mdi-power"></i></a>
+                <a href="/logout" class="link" data-bs-toggle="tooltip" data-bs-placement="top" title="Cerrar sesión"><i class="mdi mdi-power"></i></a>
             </div>
             <!-- End Bottom points-->
         </aside>
