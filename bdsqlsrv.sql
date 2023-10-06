@@ -78,9 +78,9 @@ GO
 
 INSERT INTO t_careers(id,career_title,career_code,career_alias,career_related,career_notes,created_at,updated_at) VALUES ('1', 'Arquitectura de Plataformas y Servicios de Tecnologías de la Información', 'J2262-3-003', 'ARQUITECTURA DE PLATAFORMAS Y SERVICIOS DE TECNOLOGIAS DE LA INFORMACION', 'ARQUITECTURA DE PLATAFORMAS Y SERVICIOS DE TECNOLOGIAS DE LA INFORMACION', null, null, null);
 INSERT INTO t_careers(id,career_title,career_code,career_alias,career_related,career_notes,created_at,updated_at) VALUES ('2', 'Enfermería Técnica', 'Q3286-3-003', 'ENFERMERIA TECNICA', 'ENFERMERIA TECNICA', null, null, null);
-INSERT INTO t_careers(id,career_title,career_code,career_alias,career_related,career_notes,created_at,updated_at) VALUES ('3', 'Farmacia Técnica', 'Q3286-3-004', 'FARMACIA TECNICA', 'FARMACIA TECNICA', null, null, null);
-INSERT INTO t_careers(id,career_title,career_code,career_alias,career_related,career_notes,created_at,updated_at) VALUES ('4', 'Tecnología Pesquera y Acuícola', null, 'TECNOLOGIA PESQUERA Y ACUICOLA', 'DESARROLLO PESQUERO Y ACUICOLA', null, null, null);
-INSERT INTO t_careers(id,career_title,career_code,career_alias,career_related,career_notes,created_at,updated_at) VALUES ('5', 'Desarrollo pesquero y acuícola', 'A0203-3-001', 'DESARROLLO PESQUERO Y ACUICOLA', 'DESARROLLO PESQUERO Y ACUICOLA', null, null, null);
+INSERT INTO t_careers(id,career_title,career_code,career_alias,career_related,career_notes,created_at,updated_at) VALUES ('3', 'Diseño de Modas', 'Q3286-3-004', 'FARMACIA TECNICA', 'FARMACIA TECNICA', null, null, null);
+INSERT INTO t_careers(id,career_title,career_code,career_alias,career_related,career_notes,created_at,updated_at) VALUES ('4', 'Gastronomía', null, 'TECNOLOGIA PESQUERA Y ACUICOLA', 'DESARROLLO PESQUERO Y ACUICOLA', null, null, null);
+INSERT INTO t_careers(id,career_title,career_code,career_alias,career_related,career_notes,created_at,updated_at) VALUES ('5', 'Mecatrónica Automotriz', 'A0203-3-001', 'DESARROLLO PESQUERO Y ACUICOLA', 'DESARROLLO PESQUERO Y ACUICOLA', null, null, null);
 
 SET IDENTITY_INSERT [dbo].[t_careers] OFF 
 GO

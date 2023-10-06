@@ -29,9 +29,10 @@
                     <option value="">Seleccione</option>
                     <option value="1" <?= $usuario->career_id == 1 ? ' selected="selected"' : ''; ?>>Arquitectura de Plataformas y Servicios de Tecnologías de la Información</option>
                     <option value="2" <?= $usuario->career_id == 2 ? ' selected="selected"' : ''; ?>>Enfermería Técnica</option>
-                    <option value="3" <?= $usuario->career_id == 3 ? ' selected="selected"' : ''; ?>>Farmacia Técnica</option>
-                    <option value="4" <?= $usuario->career_id == 4 ? ' selected="selected"' : ''; ?>>Tecnología Pesquera y Acuícola</option>
-                    <option value="5" <?= $usuario->career_id == 5 ? ' selected="selected"' : ''; ?>>Desarrollo pesquero y acuícola</option>
+                    <option value="3" <?= $usuario->career_id == 3 ? ' selected="selected"' : ''; ?>>Diseño de Modas</option>
+                    <option value="4" <?= $usuario->career_id == 4 ? ' selected="selected"' : ''; ?>>Gastronomía</option>
+                    <option value="5" <?= $usuario->career_id == 5 ? ' selected="selected"' : ''; ?>>Mecatrónica Automotriz</option>
+                    <option value="6" <?= $usuario->career_id == 6 ? ' selected="selected"' : ''; ?>>Cosmetología</option>
                 </select>
             </div>
             <div class="col-md-4">

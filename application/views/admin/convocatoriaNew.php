@@ -48,9 +48,10 @@
                                 <option value="" selected>Seleccione</option>
                                 <option value="1">Arquitectura de Plataformas y Servicios de Tecnologías de la Información</option>
                                 <option value="2">Enfermería Técnica</option>
-                                <option value="3">Farmacia Técnica</option>
-                                <option value="4">Tecnología Pesquera y Acuícola</option>
-                                <option value="5">Desarrollo pesquero y acuícola</option>
+                                <option value="3">Diseño de Modas</option>
+                                <option value="4">Gastronomía</option>
+                                <option value="5">Mecatrónica Automotriz</option>
+                                <option value="6">Cosmetología</option>
                             </select>
                         </div>
                     </div>
