@@ -1,4 +1,4 @@
-<div class="align-items-md-stretch mt-5">
+<div class="align-items-md-stretch mt-5 mb-3">
     <div class="card">
         <div class="card-header">
             <h4 class="card-title">Datos del administrador</h4>

@@ -29,7 +29,7 @@
     <link href="<?= base_url('public/app/lib/datatable/css/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('public/app/font-awesome/4.7.0/css/font-awesome.min.css') ?>" rel="stylesheet">
     <!-- Main Stylesheet File -->
-    <!--<link href="<?= base_url('public/app/css/style.css') ?>" rel="stylesheet">-->
+    <!--<link href="< ?= base_url('public/app/css/style.css') ?>" rel="stylesheet">-->
     <link href="<?= base_url('public/app/css/golden.css') ?>" rel="stylesheet">
 
     <!-- JavaScript Libraries -->
@@ -111,12 +111,14 @@
                     } else {
                     }
                     ?>
-                    <li class="menu-has-children dropdown-menu-end">
+                    <li class="menu-has-children">
                         <a href="#">
-                            <i class="fa fa-user fa-fw"></i>
+                        <!--<a class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+                            <!--<i class="fa fa-user fa-fw"></i>-->
                             <strong><?= $this->session->userdata('user_condicion') . ' ' . $this->session->userdata('user_name') . ' ' . $this->session->userdata('user_paterno') ?></strong>
                         </a>
                         <ul>
+                        <!--<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">-->
                             <li><a href="/users/credenciales"><i class="fa fa-key" aria-hidden="true"></i>&nbsp;Cambiar clave</a></li>
                             <li><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Cerrar sesión</a></li>
                         </ul>

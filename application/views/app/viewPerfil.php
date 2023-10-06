@@ -1,4 +1,4 @@
-<div class="align-items-md-stretch mt-5">
+<div class="align-items-md-stretch mt-5 mb-3">
     <div class="card">
         <div class="card-header">
             <h4 class="card-title">Datos personales</h4>&nbsp;<muted>Cualquier corrección o actualización deberá solicitarlo al administrador.</muted>
