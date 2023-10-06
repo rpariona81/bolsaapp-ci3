@@ -131,7 +131,7 @@
                                         <p class="mb-0"><?= $this->session->userdata('user_email') ?></p>
                                     </div>
                                 </div>
-                                <a class="dropdown-item" href="admin/perfil"><i data-feather="user" class="feather-sm text-info me-1 ms-1"></i>
+                                <a class="dropdown-item" href="/admin/perfil"><i data-feather="user" class="feather-sm text-info me-1 ms-1"></i>
                                     Mi perfil</a>
                                 <a class="dropdown-item" href="/admin/claves"><i data-feather="credit-card" class="feather-sm text-info me-1 ms-1"></i>
                                     Cambio de clave</a>
