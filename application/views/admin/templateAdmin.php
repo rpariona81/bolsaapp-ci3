@@ -19,8 +19,10 @@
     <!-- This Page CSS -->
     <link rel="stylesheet" href="<?= base_url('public/admin/dist/libs/prismjs/themes/prism-okaidia.min.css') ?>">
 
+    <link href="<?= base_url('public/admin/assets/plugins/datatable/css/dataTables.bootstrap4.min.css') ?>" rel="stylesheet" />
+    <link href="<?= base_url('public/admin/assets/plugins/datatable/css/responsive.datatables.min.css') ?>" rel="stylesheet" />
+    <link href="<?= base_url('public/admin/assets/plugins/datatable/css/buttons.dataTables.min.css') ?>" rel="stylesheet" />
     <link href="<?= base_url('public/admin/assets/plugins/datatable/css/buttons.bootstrap4.min.css') ?>" rel="stylesheet" />
-    <link href="<?= base_url('public/admin/assets/plugins/datatable/css/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,6 +41,7 @@
 		              | bullist numlist outdent indent | forecolor backcolor table code"
             });
     </script>
+
 </head>
 
 <body>
@@ -223,13 +226,13 @@
             <!-- -------------------------------------------------------------- -->
             <!-- End Container fluid  -->
             <!-- -------------------------------------------------------------- -->
-            
+
         </div>
         <!-- -------------------------------------------------------------- -->
         <!-- End Page wrapper  -->
         <!-- -------------------------------------------------------------- -->
     </div>
-    
+
     <!-- -------------------------------------------------------------- -->
     <!-- End Wrapper -->
     <!-- -------------------------------------------------------------- -->
@@ -244,7 +247,7 @@
     <!-- apps -->
     <script src="<?= base_url('public/admin/dist/js/app.min.js') ?>"></script>
     <script src="<?= base_url('public/admin/dist/js/app.init.js') ?>"></script>
-    <script src="<?= base_url('public/admin/dist/js/app-style-switcher.js') ?>"></script>
+    <!--<script src="<?= base_url('public/admin/dist/js/app-style-switcher.js') ?>"></script>-->
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="<?= base_url('public/admin/dist/libs/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.js') ?>"></script>
     <script src="<?= base_url('public/admin/dist/libs/jquery-sparkline/jquery.sparkline.min.js') ?>"></script>
@@ -260,6 +263,7 @@
 
     <script src="<?= base_url('public/admin/assets/plugins/datatable/js/jquery.datatables.min.js') ?>"></script>
     <!--<script src="<?= base_url('public/admin/assets/plugins/datatable/js/datatables.bootstrap4.min.js') ?>"></script>-->
+    <script src="<?= base_url('public/admin/assets/plugins/datatable/js/datatables.responsive.min.js') ?>"></script>
     <script src="<?= base_url('public/admin/assets/plugins/datatable/js/dataTables.buttons.min.js') ?>"></script>
     <script src="<?= base_url('public/admin/assets/plugins/datatable/js/buttons.bootstrap4.min.js') ?>"></script>
     <script src="<?= base_url('public/admin/assets/plugins/datatable/js/buttons.flash.min.js') ?>"></script>
@@ -276,8 +280,8 @@
             $('#datatablesSimple').DataTable({
                 pageLength: 8,
                 order: [],
+                //responsive: true,
                 scrollX: true,
-                responsive: true,
                 language: {
                     url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
                 },
@@ -296,6 +300,13 @@
                     }
                 ]
             });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            
+                $("#main-wrapper").attr("data-boxed-layout", "full");
+            
         });
     </script>
 </body>
